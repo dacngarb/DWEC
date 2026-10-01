@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+    <h1>Practica 02-02b JS var, let y const</h1>
+    <!--Ejercicio 4-->
+    <h3>4. que caracteres y nombres están prohibidos como nombre de variables ?</h3>
+    <p>+, un espacio, % , $,</p>
+
+     <!--Ejercicio 5-->
+    <h3>5. Crea un ejemplo para cada tipos de datos (Crea una tabla en html5 en el documento htm)</h3>
+    <table border="1">
+        <tr>
+            <td>Cadena</td>
+            <td>"Hola mundo"</td>
+        </tr>
+        <tr>
+            <td>Número</td>
+            <td>90.5</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>Null</td>
+            <td>null</td>
+        </tr>
+
+        <tr>
+            <td>Object</td>
+            <td>{nombre: "Ana", edad: 15}</td>
+        </tr>
+
+        <tr>
+            <td>Array</td>
+            <td>[1, 2, 3]</td>
+        </tr>
+        <tr>
+            <td>Function</td>
+            <td>function() { }</td>
+        </tr>
+    </table>
+
+    <!-- Ejercicio 7 -->
+    <h3>7. Ejecuta estos datos y muéstralos en un documento HTML</h3>
+
+    <table border="1">
+        <tr>
+            <th>Operación</th>
+            <th>Resultado</th>
+        </tr>
+
+        <tr>
+            <td>4 + 4</td>
+            <td id="resultado1"></td>
+        </tr>
+
+        <tr>
+            <td>"4" + 4</td>
+            <td id="resultado2"></td>
+        </tr>
+
+        <tr>
+            <td>a + c</td>
+            <td id="resultado3"></td>
+        </tr>
+
+        <tr>
+            <td>b + c</td>
+            <td id="resultado4"></td>
+        </tr>
+
+        <tr>
+            <td>2.9e3 + 1</td>
+            <td id="resultado5"></td>
+        </tr>
+
+        <tr>
+            <td>2.9e3 + b</td>
+            <td id="resultado6"></td>
+        </tr>
+
+        <tr>
+            <td>2.9e3 + a</td>
+            <td id="resultado7"></td>
+        </tr>
+    </table>
+
+    <!-- Ejercicio 8 -->
+    <h3>27. Usa la función parseFloat y parseInt para convertir 
+        explícitamente los valores 2.9e3, 30.1e-3,</h3>
+        <p><b>parseInt:</b></p>
+        <p id="resultado27Int"></p>
+     
+        <p><b>parseFloat:</b></p>
+        <p id="resultado27Float"></p>
+
+     <!-- Ejercicio 28 -->
+    <h3>28. Usa la función length para hallar el tamaño de las cadenas "123456"</h3>
+    <p id="resultado28">El tamaño de la cadena es: </p>
+
+    <script>
+        //2. Usa la función alert para enseñar el mensaje holamundo
+        alert("Hola Mundo");
+
+        //3. en el un archivo y declara varias variables en una sola linea
+        var nombre = "David", edad = 22, ciudad = "Málaga", alienigena = true;
+    
+        //6. Usa la función typeof para mostrar el tipo de los códigos
+        alert("El tipo de David es: " + typeof(nombre));
+        alert("El tipo de 22 es: " + typeof(edad));
+        alert("El tipo de ciudad es: " + typeof(ciudad));
+        alert("El tipo de alienigena es: " + typeof(alienigena));
+
+        //Ejercicio 7 
+        var a = true;
+        var b = "hola";
+        var c = 1;
+
+        document.getElementById("resultado1").innerHTML = 4 + 4;
+        document.getElementById("resultado2").innerHTML = "4" + 4;
+        document.getElementById("resultado3").innerHTML = a + c;
+        document.getElementById("resultado4").innerHTML = b + c;
+        document.getElementById("resultado5").innerHTML = 2.9e3 + 1;
+        document.getElementById("resultado6").innerHTML = 2.9e3 + b;
+        document.getElementById("resultado7").innerHTML = 2.9e3 + a;
+
+        //Ejercicio 8
+        document.getElementById("resultado27Int").innerHTML =
+        parseInt("2.9e3") + "<br>" +
+        parseInt("30.1e-3") + "<br>" +
+        parseInt("0.000000004") + "<br>" +
+        parseInt("0.6") + "<br>" +
+        parseInt("3000000") + "<br>" +
+        parseInt("301231000");
+
+
+        document.getElementById("resultado27Float").innerHTML = 
+        parseFloat("2.9e3") + "<br>" +
+        parseFloat("30.1e-3") + "<br>" +
+        parseFloat("0,000000004") + "<br>" +
+        parseFloat("0.6,") + "<br>" + 
+        parseFloat("3000000") + "<br>" +
+        parseFloat("301231000");
+
+        //Ejercicio 9
+        var texto = "Desarrollo web en entorno cliente";
+        document.getElementById("resultado28").innerHTML = "El tamaño de la cadena es: " + texto.length;
+    </script>
+</body>
+</html>

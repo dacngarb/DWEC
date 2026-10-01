@@ -246,33 +246,62 @@
             <td><b>Operador</b></td>
             <td><b>Nombre</b></td>
             <td><b>Op. Izq</b></td>
-            <td><b>Op. Izq</b></td>
+            <td><b>Op. Der</b></td>
             <td><b>Ejemplo</b></td>
         </tr>
         <tr>
-            <td>True</td>
-            <td>||</td>
-            <td>True</td>
-            <td>True</td>
+
+            <td>&amp;</td>
+            <td>Desplazamiento AND</td>
+            <td>Valor integer</td>
+            <td>Valor integer</td>
+            <td>00001000 & 00001100</td>
         </tr>
         <tr>
-            <td>True</td>
-            <td>||</td>
-            <td>False</td>
-            <td>True</td>
+            <td>|</td>
+            <td>Desplazamiento OR</td>
+            <td>Valor integer</td>
+            <td>Valor integer</td>
+            <td>00001000 | 00001100</td>
         </tr>
         <tr>
-            <td>False</td>
-            <td>||</td>
-            <td>True</td>
-            <td>True</td>
+            <td>^</td>
+            <td>Desplazamiento XOR</td>
+            <td>Valor integer</td>
+            <td>Valor integer</td>
+            <td>00001000 ^ 00001100</td>
         </tr>
         <tr>
-            <td>False</td>
-            <td>||</td>
-            <td>False</td>
-            <td>False</td>
+            <td>~</td>
+            <td>Desplazamiento NOT</td>
+            <td>(Ninguno).</td>
+            <td>Valor integer</td>
+            <td>~00001000</td>
         </tr>
+        <tr>
+            <td>&lt;&lt;</td>
+            <td>Desplazamiento a la izquierda</td>
+            <td>Valor integer</td>
+            <td>Cantidad a desplazar</td>
+            <td>00001000 &lt;&lt; 2</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;</td>
+            <td>Desplazamiento a la derecha</td>
+            <td>Valor integer</td>
+            <td>Cantidad a desplazar</td>
+            <td>00001000 &gt;&gt; 2 </td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;&gt;</td>
+            <td>Desplazamiento derecha rellenando con 0</td>
+            <td>Valor integer</td>
+            <td>Cantidad a desplazar</td>
+            <td>00001000 &gt;&gt;&gt; 2</td>
+        </tr>
+        
+        <h3>11. Ejecuta este codigo y observa los resultados de los alert</h3>
+
     </table>
 
     <script>
@@ -307,6 +336,33 @@
 
         document.getElementById("ejercicio7").innerHTML 
         = parOp1 + "<br>" + parOp2 + "<br>" + parOp3;
+
+
+        //11. Ejecuta este codigo y observa los resultados de los alert
+        let binario = "10010111"; 
+        let num255 = "11111111"; 
+        let decimal = parseInt("10010111", 2); 
+        
+        document.writeln("<br>" + binario + " es " + decimal + " en decimal"); 
+        
+        let DesplazamientoAND = decimal & 255; 
+        let DesplazamientoOR = decimal | 255; 
+        let DesplazamientoXOR = decimal ^ decimal; 
+        let DesplazamientoNOT = ~decimal; 
+        let Desplazamientoizquierda = decimal << 1; 
+        let Desplazamientoderecha = decimal >> 1; 
+        let Desplazamientoderecha0 = decimal >>> 2; 
+        
+        alert("<br>AND: " + DesplazamientoAND); 
+        alert("<br>OR: " + DesplazamientoOR); 
+        alert("<br>XOR: " + DesplazamientoXOR); 
+        alert("<br>NOT: " + DesplazamientoNOT); 
+        alert("<br>Desplazamiento izquierda: " + Desplazamientoizquierda); 
+        alert("<br>Desplazamiento derecha: " + Desplazamientoderecha); 
+        alert("<br>Desplazamiento derecha 0: " + Desplazamientoderecha0);
+
+
+        
     </script>
 </body>
 </html>
