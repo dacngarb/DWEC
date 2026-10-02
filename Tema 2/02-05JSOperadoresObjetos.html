@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+    <h1>02-05 JS Operadores Objetos</h1>
+
+    <!-- 1. Que hace el operador .? -->
+    <h3>1. Que hace el operador .?</h3>
+    <p>Se usa para acceder a propiedades o métodos de un objeto</p>
+
+    <!-- 2. Ejecuta este código y explicalo-->    
+    <h3>2. Que hace el operador []?</h3>
+    <p id="ejercicio2"></p>
+
+    <!-- 3. Que hace el operador [ ]? -->   
+    <h3>3. que hace el operador [ ]?</h3>
+    <ul>
+        <li>Acceder a elementos de un array</li>
+        <li>Acceder a propiedades de un objeto</li>
+        <li>Crear arreglos o claves dinámicamente</li>
+    </ul>
+
+    <!-- 4. Ejecuta estos códigos y explica que hacen --> 
+    <h3>4. Ejecuta estos códigos y explica que hacen</h3>
+    <p id="ejercicio4"></p>
+
+    <!-- 5. que hace el operador { }?-->
+    <h3>5. que hace el operador { }?</h3>
+    <ul>
+        <li>Definir objetos literales</li>
+        <li>Crear bloques de código</li>
+    </ul>
+
+    <!--6. Ejecuta estos códigos y explica que hacen-->
+    <h3>6. Ejecuta estos códigos y explica que hacen</h3>
+    <p id="ejercicio6"></p>
+
+    <!-- 7. Que hace el operador Delete?-->
+    <h3>7. Que hace el operador Delete?</h3>
+    <p>Se usa para eliminar propiedades de un objeto</p>
+
+    <!-- 8. crea un ejemplo de delete para eliminar la propiedad elem3-->
+    <h3>8. Crea un ejemplo de delete para eliminar la propiedad elem3</h3>
+    <p id="ejercicio8"></p> 
+
+    <!--9. que hace el operador de escape \’ ?-->
+    <h3>9. Que hace el operador de escape \’ ?</h3>
+    <p>Se usa para incluir una comilla 
+        simple dentro de una cadena de texto</p> 
+
+    <!--10. crea un ejemplo para escribir la cadena literal “<el pajarito “pedro” comia “grillos”>”
+        Ojo a lo mejor debes usar el las entidades html-->
+        <h3>10. crea un ejemplo para escribir la cadena literal “el pajarito “pedro” comia “grillos””
+            Ojo a lo mejor debes usar el las entidades html</h3>
+        <p id="ejercicio10"></p>
+
+    <!--11. que hace el operador instanceof?-->
+    <h3>11. Que hace el operador instanceof?</h3>
+    <p>Se usa para verificar si un objeto fue creado por una clase o constructor específico</p>
+
+    <!--12. Ejecuta el codigo-->
+    <h3>12. Ejecuta el codigo</h3>
+    <p id="ejercicio12"></p>
+
+    <!-- 13. que hace el operador coma?-->
+    <h3>13. Que hace el operador coma?</h3>
+        <ul>
+            <li>1. Separar elementos en listas: arrays, objetos, argumentos de funciones</li>
+            <li>En expresiones, evalúa múltiples expresiones y retorna la última</li>
+        </ul>
+
+    <!-- 14. Ejecuta este codigo-->
+    <h3>14. Ejecuta este codigo</h3>
+    <p id="ejercicio14"></p>
+
+    <!--15. que hace el operador :?-->
+    <h3>15. Que hace el operador :?</h3>
+        <ul>
+            <li>Objetos literales → para asignar valores a propiedades</li>
+            <li>En estructuras como switch</li>
+        </ul>
+
+    <!--16. Ejecuta este codigo-->
+    <h3>16. Ejecuta este codigo</h3>
+    <p id="ejercicio16"></p>
+
+    <!--17. Ejecuta este codigo-->
+    <h3>17. Ejecuta este codigo</h3>
+    <p id="ejercicio17"></p>
+
+    <!--18. que hace el operador typeof?-->
+    <h3>18. Que hace el operador typeof?</h3>
+    <p>Sirve para conocer el tipo de dato primitivo de una variable</p>
+
+    <!--19. Ejecuta este codigo-->
+    <h3>19. Ejecuta este codigo</h3>
+    <p id="ejercicio19"></p>
+
+    <script>
+        //2. Ejecuta este código y explicalo
+        var s = new String('rafa');
+        document.getElementById("ejercicio2").innerHTML = s + "--> Crea un objeto de tipo String cuyo contenido es rafa";
+        var longitud = s.length;
+        document.getElementById("ejercicio2").innerHTML += "<br>Longitud: " + longitud + "--> Devuelve la longitud del objeto String en este caso de rafa";
+        var pos = s.indexOf("fa");
+        document.getElementById("ejercicio2").innerHTML += "<br>Posición: " + pos + "--> Busca 'fa' dentro de 'rafa'";         
+
+        //4. Ejecuta estos códigos y explica que hacen
+        var arraya =["Santiago","Coruña", "Lugo"];
+        document.getElementById("ejercicio4").innerHTML = arraya[2];  
+
+        //6. Ejecuta estos códigos y explica que hacen
+        var arrayb={ elem1:"Santiago", elem2:"Coruña", elem3:"Lugo" };
+        document.getElementById("ejercicio6").innerHTML = arrayb["elem3"];
+
+        //8. Crea un ejemplo de delete para eliminar la propiedad elem3
+        delete arrayb.elem3;
+        document.getElementById("ejercicio8").innerHTML = 
+        arrayb.elem3 + "--> Devuelve undefined ya que la propiedad elem3 ha sido eliminada";
+        
+        //10. crea un ejemplo para escribir la cadena literal “el pajarito “pedro” comia “grillos””
+        var cadena = "El pajarito &quot;pedro&quot; comia &quot;grillos&quot;";
+        document.getElementById("ejercicio10").innerHTML =
+        cadena + "--> Se escribe la cadena con comillas";
+        
+        //12. Ejecuta el codigo
+        a = new Array(1,2,3);
+        document.getElementById("ejercicio12").innerHTML = 
+        (a instanceof Array) + "--> Devuelve true si 'a' es una instancia de Array";
+    
+        //14. Ejecuta este codigo
+        var nombre="juan", direccion="C\ pepep,1", apellidos="lopez Abad", edad="30";
+        document.getElementById("ejercicio14").innerHTML = nombre + "," + apellidos + "," + direccion + "," + edad;
+    
+        //16. Ejecuta este codigo
+        var a =10;
+        var b = 15;
+        var opcion= b>a ? "B es mayor que A": "A es mayor que B";
+        document.getElementById("ejercicio16").innerHTML = "opcion "+opcion;
+    
+        //17. Ejecuta este codigo
+        var a =confirm("Estas de Acuerdo");
+        var opcion= a ? "Acuerdo": "En Desacuerdo";
+        document.getElementById("ejercicio17").innerHTML = "opcion "+opcion;
+    
+        //19. Ejecuta este codigo
+        var a ="hola" , b=34, c=3.1e3, d = 34;
+        var at =typeof(a) ;
+        var bt =typeof(b) ;
+        var ct =typeof(c) ;
+        document.getElementById("ejercicio19").innerHTML = " tipo de "+ a + " es "+at;
+        document.getElementById("ejercicio19").innerHTML += "<br> tipo de "+ b + " es "+bt;
+        document.getElementById("ejercicio19").innerHTML += "<br> tipo de "+ c + " es "+ct;
+
+
+    </script>
+</body>
+</html>
