@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Ejercicio 1</h1>
+    <p id="ejercicio1"></p>
+    <script>
+        let a = prompt('Ingrse su letra: ')
+        let mensaje = 
+        (a=="a")?" la letra es A":
+        (a=="b")?" la letra es B":
+        (a=="c")?" la letra es C":
+        "N o es ni a, b, c";
+        document.writeln(mensaje);
+
+        let msgfruta = "a";
+        let fruta = prompt('Ingrese su fruta: ');
+        switch (fruta) {
+            case "Naranjas":
+            msgfruta = "El kilogramo de naranjas cuesta $0.59.";
+            break;
+            case "Manzanas":
+            msgfruta ="El kilogramo de manzanas cuesta $0.32.";
+            break;
+            case "Platanos":
+            msgfruta = "El kilogramo de platanos cuesta $0.48.";
+            break;
+            case "Cerezas":
+            msgfruta ="El kilogramo de cerezas cuesta $3.00.";
+            break;
+            case "Mangos":
+            case "Papayas":
+            msgfruta = "El kilogramo de mangos y papayas cuesta $2.79.";
+            break;
+            default:
+            msgfruta += "Lo lamentamos, por el momento no disponemos de " + fruta + ".";
+        }
+        document.writeln("<br> Fruta:" + msgfruta);
+
+        //ejercicio 1
+        let negrita = prompt("negrita: ");
+        document.getElementById("ejercicio1").innerHTML="<br>hola en " +negrita;
+    </script>
+
+    
+</body>
+</html>

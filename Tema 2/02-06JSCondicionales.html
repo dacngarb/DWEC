@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+
+    <h1>02-06 JS Condicionales</h1>
+    <!--Ejercicio 1-->
+    <h3>1. copia el siguiente código y ejecutalo</h3>
+    <p id="ejercicio1"></p>
+
+    <!--Ejercicio 2-->
+    <h3>2. crea un programa que lea una entrada con prompt y la escriba en negrita y h1</h3>
+    <p id="ejercicio2"></p>
+
+    <!--Ejercicio 1-->
+    <h3>3. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (<18)</h3>
+    <p id="ejercicio3"></p>
+
+    <!--Ejercicio 4-->
+    <h3>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
+        valores substring(inicio,fin) decida si es una pagina local o remota.</h3>
+    <p id="ejercicio4"></p>
+
+    <!--Ejercicio 5-->
+    <h3>5. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad "(&lt;18)", en edad activa (>=18) o jubilado (>67)</h3>
+    <p id="ejecicio5"></p>
+
+
+    
+    <!--Ejercicio 7-->
+    <h3>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
+    valores substring(inicio,fin) decida si es una pagina local o remota.</h3>
+    <p id="ejercicio7"></p>
+
+    
+
+    <script>
+        //ejercicio 1
+        var nombre;
+        var edad;
+        nombre=prompt('Ingrese su nombre:','');
+        edad=prompt('Ingrese su edad:','');
+        document.getElementById("ejercicio1").innerHTML=
+        'Hola ' + nombre + ' asi que tienes ' + edad + ' años';
+       
+        //ejercicio 2
+        let entrada;
+        entrada = prompt('Dime algo: ')
+        document.getElementById("ejercicio2").innerHTML =
+        '<h1><b>' + entrada + '</b></h1>'
+
+        //ejecicio 3
+        let fecha = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
+
+        let year = 2026-parseInt(fecha.substring(6,10));
+        if(year>=18) {
+            msg="es mayor de edad";
+
+        }else{
+            msg="es menor de edad";
+        }
+            document.getElementById("ejercicio3").innerHTML = msg + ' tienes ' + year;
+        
+         
+        //ejercicio 4
+        fecha = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
+        year = 2026-parseInt(fecha.substring(6,10));
+        if(year>=18) {
+            msg="Es edad activa";
+        }else {
+            msg="menor de edad"
+        }
+        document.getElementById("ejercicio4").innerHTML = msg + ' tienes ' + year;
+
+        //ejercicio 5
+        let fecha5 = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
+        let year5 = 2026-parseInt(fecha.substring(6,10));
+        if(year5>=18) {
+            msg="mayor de edad";
+        }else if(year5 >67){
+            msg="Eres jubilado";
+        }else{
+            msg="Eres menor de edad";
+        }
+        document.getElementById("ejercicio5").innerHTML = msg + ' tienes ' + year5;
+
+
+        //ejercicio 7
+        let url = (window.location.href).substring(0,4);
+
+        if(url == "http"){
+            msg= url+" es remoto";
+        }else {
+            msg=url + " es local"
+        }
+        document.getElementById("ejercicio7").innerHTML= msg
+
+
+        
+
+    </script>
+</body>
+</html>
