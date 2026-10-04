@@ -29,14 +29,40 @@
     <h3>5. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad "(&lt;18)", en edad activa (>=18) o jubilado (>67)</h3>
     <p id="ejecicio5"></p>
 
-
+    <!--Ejercicio 6-->
+    <h3>6. crea un programa que lea el año que es y te diga si es bisiesto o no 
+    ( ayuda: modulo 4 de el numero es 0)</h3>
+    <p id="ejercicio6"></p>
     
+
     <!--Ejercicio 7-->
     <h3>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
     valores substring(inicio,fin) decida si es una pagina local o remota.</h3>
     <p id="ejercicio7"></p>
 
-    
+    <!--Ejercicio 8-->
+    <h3>8. Solicitar al usuario un número de cliente. 
+        Si el número es el 1000, imprimir "Ganaste un premio".</h3>
+    <p id="ejercicio8"></p>
+
+    <!--Ejercicio 9-->
+    <h3>9. Solicitar al usuario que ingrese dos números y mostrar cuál de los dos es menor.
+         No considerar el caso en que ambos números son iguales.</h3>
+    <p id="ejercicio9"></p>
+
+    <!--Ejercicio 10-->
+    <h3>10. Solicitar al usuario que ingrese dos números y mostrar cuál de los dos es menor.
+    Considerar el caso en que ambos números son iguales.</h3>
+    <p id="ejercicio10"></p>
+
+
+
+
+
+
+
+
+
 
     <script>
         //ejercicio 1
@@ -88,6 +114,14 @@
         }
         document.getElementById("ejercicio5").innerHTML = msg + ' tienes ' + year5;
 
+        //ejercicio 6
+        let year6 = prompt('Dime el año: ', '2026')
+        if(year6%4==0) {
+            msg="Es bisiesto";
+        }else {
+            msg="No es bisiesto";
+        }
+        document.getElementById("ejercicio6").innerHTML = msg;
 
         //ejercicio 7
         let url = (window.location.href).substring(0,4);
@@ -99,8 +133,38 @@
         }
         document.getElementById("ejercicio7").innerHTML= msg
 
-
+        //ejercicio 8
+        let solicitud = prompt("Dame un número: ")
+        if (solicitud == 1000)
+        {
+            msg = "Ganaste un premio";
+        }
+        else{
+            msg = "No ganaste nada";
+        }   
+        document.getElementById("ejercicio8").innerHTML= msg
         
+        //ejercicio 9
+        let num1 = prompt("Dame un número: ")
+        let num2 = prompt("Dame otro número: ")
+        if (num1 < num2) {
+            msg = "El primer número es menor";
+        } else {
+            msg = "El segundo número es menor";
+        }
+        document.getElementById("ejercicio9").innerHTML = msg;
+
+        //ejercicio 10
+        let num3 = prompt("Dame un número: ")
+        let num4 = prompt("Dame otro número: ")
+        if (num3 < num4) {
+            msg = "El primer número es menor";
+        } else if (num3 > num4) {
+            msg = "El segundo número es menor";
+        } else {
+            msg = "Los números son iguales";
+        }   
+        document.getElementById("ejercicio10").innerHTML = msg;
 
     </script>
 </body>
