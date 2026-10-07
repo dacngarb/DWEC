@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Practica 02-01 DWEC Fundamentos de JS </title>
+    <meta charset="UTF-8">
+    <style>
+        .img1 {
+            width: 900px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Practica 02-08 </h1>
+        <h1>Nombre: </h1>
+    </header>
+    <h1> Ejemplos</h1>
+
+
+
+
+    <body>
+
+
+
+        <script>
+
+
+
+            // ejercicio1
+            document.write("<h2> Ejercicio 1</h2> ")
+            const arr3 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const obj1 ={a:2,b:3,c:"hola"}
+        /*
+            for (let var1 in arr3)document.writeln("<br>Indice "+ var1 + " contiene " + arr3[var1]);
+            for (let var1 in obj1)document.writeln("<br>Indice "+ var1 + " contiene " + obj1[var1]);
+*/
+            document.writeln("<ol>")
+            for (let var1 of arr3)document.writeln("<li style='color: green;'> "+ var1 + "</li>");
+            //for (let var1 of obj1)document.writeln("<br>Valor "+ var1 + "<br>");
+            document.writeln("</ol>")
+
+            // ejercicio2
+            document.write("<h2> Ejercicio 2 </h2> ")
+            const arr4 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const arr5 = ["#000", "#040", "#070", "#090", "#0A0", "#0D0", "#0F0"];
+            document.write("<ol>")
+            for (let var1 in arr4)document.write("<li style='color: green;'>"+ arr5[var1]+ "<h1>" +arr4[var1]+"  </li>")
+            document.write("</ol>")
+
+            
+
+
+            
+
+
+            // ejercicio3
+            document.write("<h3> Ejercicio 3</h3> ")
+            var Mis_notas = { mates: 9, Lengua: 1, Efisica: 5, Quimica: 9, fisica: 10, ingles: 5 };
+
+
+
+            // ejercicio4
+            document.write("<h2> Ejercicio 4 </h2> ")
+            const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const arr2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa"];
+            document.write("<table border='1'><tr>")
+            for (i of arr1) {
+                document.write("<td>")
+                document.write(" <p style='font-size:100px'>&#128540;</p> ")
+                document.write("</td>")
+            }
+            document.write("</tr></table >")
+
+
+            // ejercicio5
+            document.write("<h2> Ejercicio 5 </h2> ")
+            const arr6 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+
+            document.write("<input type = 'button' onclick = 'alert(\"La ciudad mas bonita es malaga\");' value=\"Malaga \" ><br/>")
+
+           
+
+
+
+
+        </script>
+    </body>
+
+</html>
+Mostrando 02-08-Bucles-Avanzados.htm.Siguiente 

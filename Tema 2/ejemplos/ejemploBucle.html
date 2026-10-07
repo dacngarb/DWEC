@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fact = 5
+        for (i=1, factvalor= 1; i<fact;factvalor=factvalor*i, i+=1);
+        document.writeln("Fsctorial de " + fact + " es " + factvalor);
+
+        let a = parseInt(prompt("Cuanto se repite", 1))
+        if (isNaN(a)){
+            document.writeln("valor erroneo")
+        }else{
+            for (var i = 1; i<= a; i++){
+                document.writeln("i es " + i + "<br>");
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

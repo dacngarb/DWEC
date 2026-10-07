@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>David Cantero García</title>
+    <meta charset="UTF-8">
+    <style>
+        .img1 {
+            width: 900px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Practica 02-07 </h1>
+        <h1>Nombre: David Cantero García</h1>
+    </header>
+
+    <h1> Ejemplos</h1>
+    <br><br>1. Ejercicio 1 Escribir un programa que pida al usuario una palabra y la muestre por pantalla 10 veces con
+    for
+    <p id="ej1"></p>
+
+    <br><br>2. Ejercicio 2 Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años
+    que ha cumplido (desde 1 hasta su edad). (while)
+    <p id="ej2"></p>
+
+    <br><br>3. Ejercicio 3 Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla
+    todos los números impares desde 1 hasta ese número separados por comas.
+    <p id="ej3"></p>
+
+    <br><br>4. Ejercicio 4 Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la
+    cuenta atrás desde ese número hasta cero separados por comas.
+    <br><br>5. Ejercicio 5 Escribir un programa que pregunte al usuario una cantidad a invertir, el interés anual y el
+    número de años, y muestre por pantalla el capital obtenido en la inversión cada año que dura la inversión.
+    <p id="ej5"></p>
+    
+    <br><br>6. Ejercicio 6 Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo
+    rectángulo como el de más abajo, de altura el número introducido.
+    <br>*
+    <br>**
+    <br>***
+    <br>****
+    <br>*****
+    <br><br>7. Ejercicio 7 Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al <br><br>10.
+    <br><br>8. Ejercicio 8 Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo
+    rectángulo como el de más abajo.
+    <br>1
+    <br>3 1
+    <br>5 3 1
+    <br>7 5 3 1
+    <br>9 7 5 3 1
+
+
+    <br><br>9. Ejercicio 9 Escribir un programa que almacene la cadena de caracteres contraseña en una variable,
+    pregunte al usuario por la contraseña hasta que introduzca la contraseña correcta.
+    <br><br>10. Ejercicio 10 Escribir un programa que pida al usuario un número entero y muestre por pantalla si es un
+    número primo o no.
+    <br><br>11. Ejercicio 11 Escribir un programa que pida al usuario una palabra y luego muestre por pantalla una a una
+    las letras de la palabra introducida empezando por la última.
+    <br><br>12. Ejercicio 12 Escribir un programa en el que se pregunte al usuario por una frase y una letra, y muestre
+    por pantalla el número de veces que aparece la letra en la frase.
+    <br><br>13. Ejercicio 13 Escribir un programa que muestre el eco de todo lo que el usuario introduzca hasta que el
+    usuario escriba “salir” que terminará.
+    <br><br>14. Ejercicio 14 Escribir un programa que pregunte al usuario una cantidad a pedir, el interés anual y el
+    número de años en el que lo amortizara, y muestre por pantalla las cuotas pagadas durante cada años suponiendo que
+    actualizan los intereses cada año.
+
+
+    <script>
+        for (var i = 0; i < 10; i++) { document.write(i + "<br>") }
+
+        var i = 0;
+        while (i < 0) {
+            document.write(i + "-2<br>")
+            i++
+        }
+        var i = 0;
+        do {
+            document.write(i + "-3<br>")
+            i++
+        } while (i < 0)
+
+        //ej 1
+        let pedirPalabra = prompt("Dame una palabra: ")
+        for (var i = 1; i <= 10; i++){
+            document.getElementById("ej1").innerHTML += pedirPalabra + "<br>";
+        }
+        
+
+        //ej 2
+        let edad = parseInt(prompt("Dime tu edad"))
+        let contador = 1;
+        let resultadoEdad = "";
+        while (contador <= edad) {
+            resultadoEdad += contador + " años<br>"; 
+            contador++; 
+        }
+        document.getElementById("ej2").innerHTML = resultadoEdad;
+
+        //ej 3
+        let num = parseInt(prompt("Dame un número"))
+        for(var i = 1; i <= num; i+=2){
+            document.getElementById("ej3").innerHTML = i;
+        }
+
+        //ej 5
+
+        let cantidad5=parseInt(prompt("Cantidad a invertir", 10))        
+        let interes5=parseInt(prompt("interés ", 10)  )      
+        let anos5=parseInt(prompt("número de años ", 10)   )
+        let interesanual;    
+        if (isNaN(cantidad5)|| isNaN(interes5)||  isNaN(anos5) )
+             document.getElementById("ej5").innerHTML=  "Error datos no numericos"
+            else {
+                       
+        document.getElementById("ej5").innerHTML=  " Cantidad inicial" + cantidad5 + " <br>"
+            for (var i = 1; i <= anos5; i+=1) {    
+                interesanual =  cantidad5*(interes5/100);
+                cantidad5 = cantidad5 + interesanual;
+                document.getElementById("ej5").innerHTML+= "Al final del año " + i + " tenemos un interes de  " + interesanual + " y una cantidad de  " + cantidad5 + " <br>"
+
+            }
+}
+    </script>
+
+
+</body>
+
+</html>
+Mostrando 02-07 bucles.htm.Siguiente
