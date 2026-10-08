@@ -21,13 +21,13 @@
     <p id="ejercicio3"></p>
 
     <!--Ejercicio 4-->
-    <h3>7. crea un programa que leyendo la variable window.location.href y sacando sus primeros 4
-        valores substring(inicio,fin) decida si es una pagina local o remota.</h3>
+    <h3>4. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad (&lt;18)
+    o en edad activa (&gt=18)</h3>
     <p id="ejercicio4"></p>
 
     <!--Ejercicio 5-->
     <h3>5. crea un programa que lea tu fecha de nacimiento y te diga si eres menor de edad "(&lt;18)", en edad activa (>=18) o jubilado (>67)</h3>
-    <p id="ejecicio5"></p>
+    <p id="ejercicio5"></p>
 
     <!--Ejercicio 6-->
     <h3>6. crea un programa que lea el año que es y te diga si es bisiesto o no 
@@ -55,13 +55,25 @@
     Considerar el caso en que ambos números son iguales.</h3>
     <p id="ejercicio10"></p>
 
+    <!--Ejercicio 11-->
+    <h3>11. Requerir al usuario que ingrese un día de la semana e imprimir un mensaje si es lunes,
+    otro mensaje diferente si es viernes, otro mensaje diferente si es sábado o domingo. Si
+    el día ingresado no es ninguno de esos, imprimir otro mensaje.</h3>
+    <p id="ejercicio11"></p>
 
+    <!--Ejercicio 12-->
+    <h3>12. escribir un programa que, dado un número entero, muestre su valor absoluto. Nota: para
+        los números positivos su valor absoluto es igual al número (el valor absoluto de 52 es
+        52), mientras que, para los negativos, su valor absoluto es el número multiplicado por -1
+        (el valor absoluto de -52 es 52).</h3>
+    <p id="ejercicio12"></p>
 
-
-
-
-
-
+    <!--EJERCICIO 13-->
+    <h3>13. Solicitar al usuario que ingrese los nombres de dos personas, los cuales se almacenarán
+        en dos variables. A continuación, imprimir “coincidencia” si los nombres de ambas
+        personas comienzan con la misma letra ó si terminan con la misma letra. Si no es así,
+        imprimir “no hay coincidencia”.</h3>
+    <p id="ejercicio13"></p>
 
 
     <script>
@@ -103,15 +115,18 @@
         document.getElementById("ejercicio4").innerHTML = msg + ' tienes ' + year;
 
         //ejercicio 5
-        let fecha5 = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
-        let year5 = 2026-parseInt(fecha.substring(6,10));
-        if(year5>=18) {
-            msg="mayor de edad";
-        }else if(year5 >67){
-            msg="Eres jubilado";
-        }else{
-            msg="Eres menor de edad";
+        let fecha5 = prompt('Dime la fecha de nacimiento: ', '10/12/2000');
+
+        let year5 = 2026 - parseInt(fecha5.substring(6, 10));
+
+        if (year5 > 67) {
+            msg = "Eres jubilado";
+        } else if (year5 >= 18) {
+            msg = "Eres mayor de edad";
+        } else {
+            msg = "Eres menor de edad";
         }
+
         document.getElementById("ejercicio5").innerHTML = msg + ' tienes ' + year5;
 
         //ejercicio 6
@@ -165,6 +180,52 @@
             msg = "Los números son iguales";
         }   
         document.getElementById("ejercicio10").innerHTML = msg;
+
+        //ejercicio 11
+        let dia = prompt("Dime un día de la semana: ")
+        let text;
+        switch (dia) {
+            case "lunes":
+                text = "Es lunes";
+                break;
+
+            case "viernes":
+                text = "Es viernes";
+                break;
+
+            case "sabado":
+            case "domingo":
+                text = "Es fin de semana";
+                break;
+
+            case "martes":
+            case "miercoles":
+            case "jueves":
+                text = "Es mitad de semana";
+                break;
+
+            default:
+                text = "No válido";
+        }
+        document.getElementById("ejercicio11").innerHTML = text;
+
+        //ejercicio12
+        let valorAb = prompt("Dime un numero positivo o negativo");
+        if (valorAb < 0){
+            valorAb *= -1;
+        }
+        document.getElementById("ejercicio12").innerHTML = valorAb;
+
+        //ejercicio 13
+        let nombre1 = prompt("Dame un nombre");
+        let nombre2 = prompt("Dame un nombre");
+
+        if (nombre1[0] == nombre2[0] || nombre1[-1] == nombre2[-1]){
+            document.getElementById("ejercicio12").innerHTML = nombre1 + " y " + nombre2 + " no son identicos";
+        }else{
+            document.getElementById("ejercicio12").innerHTML = nombre1 + " y " + nombre2 + " no son identicos";
+        }
+
 
     </script>
 </body>
