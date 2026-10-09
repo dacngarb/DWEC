@@ -75,24 +75,61 @@
         imprimir “no hay coincidencia”.</h3>
     <p id="ejercicio13"></p>
 
+    <!--Ejercicio 14-->
+    <h3>14. crear un programa que permita al usuario elegir un candidato por el cual votar. Las
+    posibilidades son: candidato A por el partido rojo, candidato B por el partido verde,
+    candidato C por el partido azul. Según el candidato elegido (A, B ó C) se le debe imprimir
+    el mensaje “Usted ha votado por el partido [color que corresponda al candidato elegido]”.
+    Si el usuario ingresa una opción que no corresponde a ninguno de los candidatos
+    disponibles, indicar “Opción errónea”.</h3>
+    <p id="ejercicio14"></p>
+
+
+    <!--Ejercicio 15-->
+    <h3>15. escribir un programa que solicite al usuario una letra y, si es una vocal, muestre el
+    mensaje “es vocal”. Se debe validar que el usuario ingrese sólo un carácter. Si ingresa
+    un string de más de un carácter, informarle que no se puede procesar el dato. (si length
+    es mayor que 1 va a 0 si no un if con 5 OR con las vocales)</h3>
+    <p id="ejercicio15"></p>
+
+    
+    <!--ejercicio 16-->
+    <h3>16. Hacer un programa que permita saber si un año es bisiesto. 
+        Para que un año sea bisiesto debe ser divisible por 4 y no debe ser divisible 
+        por 100, excepto que también sea divisible por 400.</h3>
+    <p id="ejercicio16"></p>
+
+    <!--ejercicio 18-->
+    <h3>18. Pide un número y muestra si es par o impar usando el operador ternario.</h3>
+    <p id="ejercicio18"></p>
+
+
+    <!--ejercicio 19-->
+    <h3>19. Verifica si una persona puede votar (mayor o igual a 18 años) 
+        usando el operador ternario.</h3>
+    <p id="ejercicio19"></p>
+
+    <!--ejercicio 20-->
+    <h3>20. dado dos números, muestra cuál es mayor utilizando el operador ternario</h3>
+    <p id="ejercicio20"></p>
 
     <script>
         //ejercicio 1
         var nombre;
         var edad;
-        nombre=prompt('Ingrese su nombre:','');
-        edad=prompt('Ingrese su edad:','');
+        nombre=prompt('1. Ingrese su nombre:','');
+        edad=prompt('1. Ingrese su edad:','');
         document.getElementById("ejercicio1").innerHTML=
         'Hola ' + nombre + ' asi que tienes ' + edad + ' años';
        
         //ejercicio 2
         let entrada;
-        entrada = prompt('Dime algo: ')
+        entrada = prompt('2. Dime algo: ')
         document.getElementById("ejercicio2").innerHTML =
         '<h1><b>' + entrada + '</b></h1>'
 
         //ejecicio 3
-        let fecha = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
+        let fecha = prompt('3. Dime la fecha de nacimiento: ', '10/12/2026')
 
         let year = 2026-parseInt(fecha.substring(6,10));
         if(year>=18) {
@@ -105,7 +142,7 @@
         
          
         //ejercicio 4
-        fecha = prompt('Dime la fecha de nacimiento: ', '10/12/2026')
+        fecha = prompt('4. Dime la fecha de nacimiento: ', '10/12/2026')
         year = 2026-parseInt(fecha.substring(6,10));
         if(year>=18) {
             msg="Es edad activa";
@@ -115,7 +152,7 @@
         document.getElementById("ejercicio4").innerHTML = msg + ' tienes ' + year;
 
         //ejercicio 5
-        let fecha5 = prompt('Dime la fecha de nacimiento: ', '10/12/2000');
+        let fecha5 = prompt('5. Dime la fecha de nacimiento: ', '10/12/2000');
 
         let year5 = 2026 - parseInt(fecha5.substring(6, 10));
 
@@ -130,7 +167,7 @@
         document.getElementById("ejercicio5").innerHTML = msg + ' tienes ' + year5;
 
         //ejercicio 6
-        let year6 = prompt('Dime el año: ', '2026')
+        let year6 = prompt('6. Dime el año: ', '2026')
         if(year6%4==0) {
             msg="Es bisiesto";
         }else {
@@ -149,7 +186,7 @@
         document.getElementById("ejercicio7").innerHTML= msg
 
         //ejercicio 8
-        let solicitud = prompt("Dame un número: ")
+        let solicitud = prompt("8. Dame un número: ")
         if (solicitud == 1000)
         {
             msg = "Ganaste un premio";
@@ -160,8 +197,8 @@
         document.getElementById("ejercicio8").innerHTML= msg
         
         //ejercicio 9
-        let num1 = prompt("Dame un número: ")
-        let num2 = prompt("Dame otro número: ")
+        let num1 = prompt("9. Dame un número: ")
+        let num2 = prompt("9. Dame otro número: ")
         if (num1 < num2) {
             msg = "El primer número es menor";
         } else {
@@ -170,8 +207,8 @@
         document.getElementById("ejercicio9").innerHTML = msg;
 
         //ejercicio 10
-        let num3 = prompt("Dame un número: ")
-        let num4 = prompt("Dame otro número: ")
+        let num3 = prompt("10. Dame un número: ")
+        let num4 = prompt("10. Dame otro número: ")
         if (num3 < num4) {
             msg = "El primer número es menor";
         } else if (num3 > num4) {
@@ -182,7 +219,7 @@
         document.getElementById("ejercicio10").innerHTML = msg;
 
         //ejercicio 11
-        let dia = prompt("Dime un día de la semana: ")
+        let dia = prompt("11. Dime un día de la semana: ")
         let text;
         switch (dia) {
             case "lunes":
@@ -210,21 +247,86 @@
         document.getElementById("ejercicio11").innerHTML = text;
 
         //ejercicio12
-        let valorAb = prompt("Dime un numero positivo o negativo");
+        let valorAb = prompt("12. Dime un numero positivo o negativo");
         if (valorAb < 0){
             valorAb *= -1;
         }
         document.getElementById("ejercicio12").innerHTML = valorAb;
 
         //ejercicio 13
-        let nombre1 = prompt("Dame un nombre");
-        let nombre2 = prompt("Dame un nombre");
+        let nombre1 = prompt("13. Dame un nombre");
+        let nombre2 = prompt("13. Dame otro nombre");
 
-        if (nombre1[0] == nombre2[0] || nombre1[-1] == nombre2[-1]){
-            document.getElementById("ejercicio12").innerHTML = nombre1 + " y " + nombre2 + " no son identicos";
+        if (nombre1[0] == nombre2[0] || nombre1.at(-1) == nombre2.at(-1)){
+            document.getElementById("ejercicio13").innerHTML = nombre1 + " y " + nombre2 + " son identicos";
         }else{
-            document.getElementById("ejercicio12").innerHTML = nombre1 + " y " + nombre2 + " no son identicos";
+            document.getElementById("ejercicio13").innerHTML = nombre1 + " y " + nombre2 + " no son identicos";
         }
+
+        //ejercicio14
+        let candidato = prompt("14. Elige entre el candidato(a,b,c)");
+        let partido;
+        switch(candidato){
+            case "a":
+                partido = "Usted ha votado por el partido rojo";
+            break;
+
+            case "b":
+                partido = "Usted ha votado por el partido verde";
+            break;
+            
+            case "c":
+                partido = "Usted ha votado por el partido azul";
+            break;
+            
+            default:
+                partido = "Opción errónea";
+        }
+        document.getElementById("ejercicio14").innerHTML = partido;
+
+    
+        //ejercicio 15
+        let vocal = prompt("15. Dime una letra");
+
+        if(vocal.length > 1){
+            document.getElementById("ejercicio15").innerHTML = "No se puede procesar el dato";
+
+        }else if(vocal == "a" || vocal == "e" || vocal == "i" || vocal == "o" || vocal == "u"){
+            document.getElementById("ejercicio15").innerHTML = vocal +" es una vocal";
+
+        }else{
+            document.getElementById("ejercicio15").innerHTML = vocal + " es una consonante";
+        }
+
+        //ejercicio 16
+        let anyo = prompt("16. Dime un año");
+        if ((anyo % 4 == 0 && anyo % 100 != 0) || anyo % 400 == 0){
+            document.getElementById("ejercicio16").innerHTML = anyo + " es bisiesto";
+        } else{
+            document.getElementById("ejercicio16").innerHTML = anyo + " no es bisiesto";
+        }
+
+        //ejercicio 18
+        let numero = prompt("18. Dime un número par o impar");
+        let mensaje = numero % 2 == 0 ? " es PAR" : " es impar";
+        document.getElementById("ejercicio18").innerHTML = numero + mensaje;
+
+
+        //ejercicio 19
+        let mayorEdad = prompt("19. ¿Puedes votar? dime tu edad");
+        let votar = mayorEdad >= 18 ? " por lo que es mayor de edad y puede votar" :
+                                        " por lo que no es mayor edad y no puede votar";
+        document.getElementById("ejercicio19").innerHTML = "Tiene " + mayorEdad + " años " + votar; 
+
+        //ejercicio 20
+        let numero1 = prompt("20. Dame un número");
+        let numero2 = prompt("20. Dame otro número");
+
+        let resultado = numero1 > numero2 ? numero1 + " es mayor que " + numero2
+            : numero2 > numero1? numero2 + " es mayor que " + numero1
+            : "Los dos números son iguales";
+
+        document.getElementById("ejercicio20").innerHTML = resultado;
 
 
     </script>
