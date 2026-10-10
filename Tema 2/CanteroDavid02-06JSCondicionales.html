@@ -113,6 +113,45 @@
     <h3>20. dado dos números, muestra cuál es mayor utilizando el operador ternario</h3>
     <p id="ejercicio20"></p>
 
+    <!--ejercicio 21-->
+    <h3>21. clasificar una nota usando if</h3>
+    <p id="ejercicio21"></p>
+
+    <!--ejercicio 22-->
+    <h3>22. clasifica una nota numérica del 0 al 10 en:</h3>
+    <ul>
+        <li>0-4="Insuficiente"</li>
+        <li>5-6="Suficiente"</li>
+        <li>7-8="Notable"</li>
+        <li>9-10="Sobresaliente"</li>
+    </ul>
+    <p id="ejercicio22"></p>
+
+    <!--Ejercicio 23-->
+    <h3>23. Indica si un número ingresado es positivo, negativo o cero.</h3>
+    <p id="ejercicio23"></p>
+
+    <!--ejercicio 24-->
+    <h3>24. Validar contraseña Verifica si una contraseña ingresada es igual 
+        a "admin123" y muestra un mensaje de acceso concedido o denegado.</h3>
+    <p id="ejercicio24"></p>
+
+    <!--ejercicio 25-->
+    <h3>25. ¿Muestra el nombre del Día de la semana correspondiente 
+        a un número del 1 al 7 usando switch.</h3>
+    <p id="ejercicio25"></p>
+
+    <!--ejercicio 26-->
+    <h3>26. crea una Calculadora básica Dado dos números y 
+        una operación (+, -, *, /), muestra el resultado usando switch.</h3>
+    <p id="ejercicio26"></p>
+
+    <!--ejercicio 27-->
+    <h3>27. crea un Semáforo Dado un color (rojo, amarillo, verde), 
+        muestra la acción correspondiente: "Detente", "Precaución" o "Avanza".</h3>
+    <p id="ejercicio27"></p>
+
+
     <script>
         //ejercicio 1
         var nombre;
@@ -186,7 +225,7 @@
         document.getElementById("ejercicio7").innerHTML= msg
 
         //ejercicio 8
-        let solicitud = prompt("8. Dame un número: ")
+        let solicitud = prompt("8. Dame un número para el premio: ", "1000")
         if (solicitud == 1000)
         {
             msg = "Ganaste un premio";
@@ -327,6 +366,148 @@
             : "Los dos números son iguales";
 
         document.getElementById("ejercicio20").innerHTML = resultado;
+
+        //ejercicio 21
+        let nota = prompt("21. Dime tu nota");
+        let notaText;
+
+        if (nota >= 0 && nota <= 4){
+            notaText = "Insuficiente";
+        }else if(nota == 5 || nota == 6){
+            notaText = "Suficiente";
+        }else if(nota == 7 || nota == 8){
+            notaText = "Notable";
+        }else if (nota == 9 || nota == 10){
+            notaText = "Sobresaliente";
+        }else{
+            notaText = "Nota no valida";
+        }
+        document.getElementById("ejercicio21").innerHTML = nota + " es un" + notaText;
+
+        //ejercicio22
+        let notaNumerica = parseInt(prompt("22. Dame tu nota numérica"));
+        let notaText22;
+
+        switch(notaNumerica){
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                notaText22 = "Insuficiente";
+                break;
+            case 5:
+            case 6:
+                notaText22 = "Suficiente";
+                break;
+            case 7:
+            case 8:
+                notaText22 = "Notable";
+                break;
+            case 9:
+            case 10: 
+                notaText22 = "Sobresaliente";
+                break;
+            default:
+                notaText22 = "Nota no valida";
+        }
+        document.getElementById("ejercicio22").innerHTML = notaNumerica + " es un " + notaText22;
+
+        //ejercicio 23
+        let numeroPNC = parseInt(prompt("23. Dime un numero aleatorio"));
+
+        if(numeroPNC > 0){
+            document.getElementById("ejercicio23").innerHTML = numeroPNC + " es positivo";
+        }else if(numeroPNC == 0){
+            document.getElementById("ejercicio23").innerHTML = numeroPNC + " es cero";
+        }else{
+            document.getElementById("ejercicio23").innerHTML = numeroPNC + " es negativo";
+        }
+
+        //ejercicio 24
+        let contraseña = prompt("24. ¿Contraseña?", "admin123");
+
+        if (contraseña == "admin123"){
+            document.getElementById("ejercicio24").innerHTML = "La contraseña " + contraseña + " es correcta";
+        }else{
+            document.getElementById("ejercicio24").innerHTML = "La contraseña " + contraseña + " es incorrecta";
+        }
+
+        //ejercicio 25
+        let diaSemana = parseInt(prompt("25. Di un número del 1 al 7"));
+        let textDia;
+
+        switch(diaSemana){
+            case 1: 
+                textDia = "Es lunes";
+                break;
+            case 2: 
+                textDia = "Es martes";
+                break;
+            case 3: 
+                textDia = "Es miércoles";
+                break;
+            case 4: 
+                textDia = "Es jueves";
+                break;
+            case 5: 
+                textDia = "Es viernes";
+                break;
+            case 6: 
+                textDia = "Es sábado";
+                break;
+            case 7: 
+                textDia = "Es domingo";
+                break;
+            default:
+                textDia = "no valido"
+        }
+        document.getElementById("ejercicio25").innerHTML = textDia;
+
+        //ejercicio 26
+        let numeroCalc1 = parseInt(prompt("26. Dime un número"));
+        let operador = prompt("Dime un operador", "+,-,*,/")
+        let numeroCalc2 = parseInt(prompt("26. Dime un número"));
+        let resultadoCalc;
+
+        switch(operador){
+            case "+":
+                resultadoCalc = numeroCalc1 + numeroCalc2;
+                break;
+            case "-":
+                resultadoCalc = numeroCalc1 - numeroCalc2;
+                break;
+            case "*":
+                resultadoCalc = numeroCalc1 * numeroCalc2;
+                break;
+            case "/":
+                resultadoCalc = numeroCalc1 / numeroCalc2;
+                break;
+            default:
+                resultadoCalc = "No valido";
+                break;
+        }
+        document.getElementById("ejercicio26").innerHTML = 
+        numeroCalc1 + operador +  numeroCalc2 + " = " + resultadoCalc;
+
+        //ejercicio 27
+        let color = prompt("27. Dime que color tiene el semaforo", "(rojo, amarillo, verde)");
+        let accionColor;
+
+        if (color == "rojo"){
+            accionColor = "Detente";
+        }else if(color == "amarillo"){
+            accionColor = "Precaución";
+        }else if(color = "verde"){
+            accionColor = "Avanza";
+        }else{
+            accionColor = "Color no válido"
+        }
+        document.getElementById("ejercicio27").innerHTML =
+        "El semáforo está en " + color + " así que " + accionColor;
+
+
+
 
 
     </script>
