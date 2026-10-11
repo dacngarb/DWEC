@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+    <h1>02-01 Bucles JS</h1>
+
+    <!--Ejercicio 1-->
+    <h3>1. Ejercicio 1 Escribir un programa que pida al usuario una palabra y 
+        la muestre por pantalla 10 veces con for</h3>
+    <p id="ejercicio1"></p>
+
+    <!--Ejercicio 2-->
+    <h3>2. Ejercicio 2 Escribir un programa que pregunte al usuario su edad y 
+        muestre por pantalla todos los años que ha cumplido 
+        (desde 1 hasta su edad). (while)</h3>
+    <p id="ejercicio2"></p>
+
+    <!--ejercicio 3-->
+    <h3>3. Ejercicio 3 Escribir un programa que pida al usuario un 
+        número entero positivo y muestre por pantalla todos los números 
+        impares desde 1 hasta ese número separados por comas.</h3>
+    <p id="ejercicio3"></p>
+
+    <!--ejercicio 4-->
+    <h3>4. Ejercicio 4 Escribir un programa que pida al usuario un número 
+        entero positivo y muestre por pantalla la cuenta atrás desde 
+        ese número hasta cero separados por comas.</h3>
+    <p id="ejercicio4"></p>
+
+    <!--ejercicio 5-->
+    <h3>5. Ejercicio 5 Escribir un programa que pregunte al usuario una 
+        cantidad a invertir, el interés anual y el número de años, y 
+        muestre por pantalla el capital obtenido en la inversión cada 
+        año que dura la inversión.</h3>
+    <p id="ejercicio5"></p>
+
+    <!--Ejercicio 6-->
+    <h3>6. Ejercicio 6 Escribir un programa que pida al usuario un número 
+        entero y muestre por pantalla un triángulo rectángulo 
+        como el de más abajo, de altura el número introducido.</h3>
+
+    <script>
+        //EJERCICIO 1
+        let palabra = prompt("1. Dame una palabra");
+        let resultado = "";
+        for(let i = 0; i < 10; i++){
+            resultado += palabra + "<br>";
+            
+        }
+        document.getElementById("ejercicio1").innerHTML = resultado ;
+
+        //ejercicio 2
+        let edad = parseInt(prompt("2. Dime tu edad"));
+        let contador = 1;
+
+        while(contador<=edad){
+            document.getElementById("ejercicio2").innerHTML += contador + " años<br>";
+            contador++;
+        }
+
+        //ejercicio 3
+        let numero = parseInt(prompt("3. Dime un número"));
+        let contadorImpar = 1;
+
+        while(contadorImpar <= numero){
+            document.getElementById("ejercicio3").innerHTML += contadorImpar + ", ";
+            contadorImpar+=2;
+        }
+
+        //ejercicip 4
+        let numeroPositivo = parseInt(prompt("4. Dime un número"));
+        let contadorCuentaAtras = numeroPositivo;
+
+        while(contadorCuentaAtras >= 0){
+            document.getElementById("ejercicio4").innerHTML += contadorCuentaAtras + ", ";
+            contadorCuentaAtras--;
+        }
+
+        //ejercicio 5
+        let cantidadInvertir = parseInt(prompt("5. Dime una cantidad a invertir"));
+        let interesAnual = parseInt(prompt("5. Dime el interés anual"));
+        let numeroAnyo = parseInt(prompt("5. Dime el número de años"));
+
+        if (isNaN(cantidadInvertir)|| isNaN(interesAnual)||  isNaN(numeroAnyo) )
+             document.getElementById("ejercicio5").innerHTML=  "Datos no valido"
+            else {
+                       
+        document.getElementById("ejercicio5").innerHTML = " Cantidad inicial: " + cantidadInvertir + " <br>"
+            for (var i = 1; i <= numeroAnyo; i += 1) {
+                interesanual = cantidadInvertir * (interesAnual / 100);
+                cantidadInvertir = cantidadInvertir + interesanual;
+
+                document.getElementById("ejercicio5").innerHTML += 
+                "Al final del año " + i + 
+                " hay un interes de  " + interesanual + 
+                " y una cantidad de  " + cantidadInvertir + " <br>"
+
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
