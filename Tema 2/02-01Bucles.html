@@ -42,6 +42,34 @@
     <h3>6. Ejercicio 6 Escribir un programa que pida al usuario un número 
         entero y muestre por pantalla un triángulo rectángulo 
         como el de más abajo, de altura el número introducido.</h3>
+    <p id="ejercicio6"></p>
+
+    <!-- Ejercicio 7 -->
+    <h3>7. Ejercicio 7 Mostrar la tabla de multiplicar del 1 al 10</h3>
+    <p id="ejercicio7"></p>
+
+    <!--Ejercicio 8-->
+    <h3>8. Ejercicio 8 Escribir un programa que pida al usuario un número entero y 
+        muestre por pantalla un triángulo rectángulo como el de más abajo 
+        por ejemplo para la entrada 5 debe dibujar</h3>
+    <p id="ejercicio8"></p>
+
+    <!--Ejercicio 9-->
+    <h3>9. Ejercicio 9 Escribir un programa que almacene la cadena de 
+        caracteres contraseña en una variable, pregunte al usuario por 
+        la contraseña hasta que introduzca la contraseña correcta.</h3>
+    <p id="ejercicio9"></p>
+
+    <!--Ejercicio 10-->
+    <h3>10. Ejercicio 10 Escribir un programa que pida al usuario un 
+        número entero y muestre por pantalla si es un número primo o no.</h3>
+    <p id="ejercicio10"></p>
+
+    <!--ejercicio 11-->
+    <h3>11. Ejercicio 11 Escribir un programa que pida al usuario una palabra 
+        y luego muestre por pantalla una a una las letras de la 
+        palabra introducida empezando por la última.</h3>
+    <p id="ejercicio11"></p>
 
     <script>
         //EJERCICIO 1
@@ -102,9 +130,71 @@
             }
         }
 
+        //ejercicio 6
+        let altura = parseInt(prompt("6. Introduce un número entero:"));
 
+        let asteriscos = "";
 
+        for (let i = 1; i <= altura; i++) {
+            asteriscos += "*";
+            document.getElementById("ejercicio6").innerHTML += asteriscos + "<br>";
+        }
 
+        // ejercicio 7
+
+        let numeroTabla = parseInt(prompt("7. Dime un número"));
+
+        for (let i = 1; i <= 10; i++) {
+            document.getElementById("ejercicio7").innerHTML +=
+                numeroTabla + " x " + i + " = " + (numeroTabla * i) + "<br>";
+        }
+
+        //ejercicio 8
+        let numeroTriangulo = parseInt(prompt("8. Dime un numero para el triángulo"));
+        for (let iExterno = 1; iExterno <= numeroTriangulo; iExterno++){
+            for (let iInterno = iExterno * 2-1; iInterno >= 1; iInterno-=2 ){
+            document.getElementById("ejercicio8").innerHTML += iInterno + " ";
+
+            }
+            document.getElementById("ejercicio8").innerHTML += "<br>";
+        }
+
+        //ejercicio 9
+        let contraseñaPedida = prompt("9. dime la contraseña correcta", "contraseña");
+        let contraseñaCorrecta = "contraseña";
+        let intentos = 0
+
+        while(contraseñaPedida != contraseñaCorrecta){
+            contraseñaPedida = prompt("9. dime la contraseña correcta", "contraseña");
+            intentos++;
+        }
+        document.getElementById("ejercicio9").innerHTML += "La contraseña " + contraseñaPedida + " es la correcta. numero de intentos: " + intentos;
+
+        //ejercicio 10
+        let numeroPrimo = parseInt(prompt("10. dame un numero"));
+
+        let divisor = 0;
+
+        for (let i = 1; i <= numeroPrimo; i++) {
+            if (numeroPrimo % i == 0) {
+                divisor++;
+            }
+        }
+
+        if (divisor == 2) {
+            document.getElementById("ejercicio10").innerHTML =
+                numeroPrimo + " es un número primo";
+        } else {
+            document.getElementById("ejercicio10").innerHTML =
+                numeroPrimo + " no es un número primo";
+        }
+
+        // ejercicio 11
+        let palabraDividida = prompt("11. Dime una palabra");
+
+        for (let i = palabraDividida.length - 1; i >= 0; i--) {
+            document.getElementById("ejercicio11").innerHTML += palabraDividida[i] + "<br>";
+        }
     </script>
 </body>
 </html>
