@@ -70,6 +70,17 @@
         y luego muestre por pantalla una a una las letras de la 
         palabra introducida empezando por la última.</h3>
     <p id="ejercicio11"></p>
+    
+    <!--Ejercicio 12-->
+    <h3>12. Ejercicio 12 Escribir un programa en el que se pregunte al usuario por una frase 
+        y una letra, y muestre por pantalla el número de veces que aparece la letra en la frase.</h3>
+    <p id="ejercicio12"></p>
+
+
+    <!--Ejercicio 13-->
+    <h3>13. Ejercicio 13 Escribir un programa que muestre el eco de todo lo que el 
+        usuario introduzca hasta que el usuario escriba “salir” que terminará.</h3>
+    <p id="ejercicio13"></p>
 
     <script>
         //EJERCICIO 1
@@ -195,6 +206,36 @@
         for (let i = palabraDividida.length - 1; i >= 0; i--) {
             document.getElementById("ejercicio11").innerHTML += palabraDividida[i] + "<br>";
         }
+
+
+        //ejercicio 12
+        let frase = prompt("12. Dime una frase");
+        let letra = prompt("12. Dime una letra");
+
+        let contadorLetra = 0;
+
+        for (let i = 0; i < frase.length; i++){
+            if (frase[i] === letra) {
+                contadorLetra++;
+            }
+        }
+        document.getElementById("ejercicio12").innerHTML += "La letra "+ letra + " ha salido " + contadorLetra + " veces";
+
+
+        //ejercicio 13
+        let eco = "";
+
+        do{
+           
+             eco = prompt("13. Dime una palabra")
+             if(eco != "salir"){
+                document.getElementById("ejercicio13").innerHTML += eco + "<br>";
+             }
+             
+            
+        }while(eco != "salir");
+
+         
     </script>
 </body>
 </html>

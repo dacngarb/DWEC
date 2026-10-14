@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+    <h1>02-08 JS Bucles 2 pract</h1>
+    <!--Ejercicio 1-->
+    <h3>Ejercicio 1. Escribir un programa que cree muestre todos los elementos de este array con for of
+    const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+    en una lista html con color verde.</h3>
+    <p id="ejercicio1"></p>
+
+    <!--Ejercicio 2-->
+    <h3>Ejercicio 2. Modifica el anterior para que el verde sea un degradado (000000 va a 00ff00)</h3>
+    <p id="ejercicio2"></p>
+
+    <!--Ejercicio 3-->
+    <h3>Ejercicio 3. Usa for in para ver todas las asignaturas de este objeto
+    var Mis_notas = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };</h3>
+    <p id="ejercicio3"></p>
+
+    <!--Ejercicio 4-->
+    <h3>Ejercicio 4. Sea estos dos arrays<br>
+    const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];<br>
+    const arr2 = ["bonita", "Guapa", " Bella", "Pintoresca", "Hermosa" ];<br>
+    Usa for of doble para combinarlos todos y mostrarlos en una tabla</h3>
+    <p id="ejercicio4"></p>
+
+    <!--Ejercicio 5-->
+    <h3>Ejercicio 5. Crea un script que cree un formulario con tantos botones como haya en el siguiente
+        const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+        ponle esto dentro de cada boton</h3>
+    <p id="ejercicio5"></p>
+
+    <!--Ejercio 6-->
+    <h3>Escribe un programa que dibuje la frase "hola que tal" 10 veces cada vez mas pequeña ... puedes usar algo como</h3>
+    <p id="ejercicio6"></p>
+
+    <script>
+        //ejercicio 1
+        const arr1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada" ];
+
+        for (let ciudad of arr1) {
+            document.getElementById("ejercicio1").innerHTML +=
+            '<li style="color: green;">' + ciudad + "</li>";
+        }
+
+        //ejercicio 2
+        document.write("<h2> Ejercicio 2 </h2> ")
+            const arr4 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const arr5 = ["#000", "#040", "#070", "#090", "#0A0", "#0D0", "#0F0"];
+            
+            let i = 0;
+
+            for (let ciudadDegradado of arr4) {
+                document.getElementById("ejercicio2").innerHTML +=
+                '<li style="color: ' + arr5[i] + ';">' + ciudadDegradado + '</li>';
+                i++;
+            }
+
+            //ejercicio 3
+            const Mis_notas2 = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };
+            for (let notas in Mis_notas2) {
+                document.getElementById("ejercicio3").innerHTML +=
+                '<li>' + notas + " " + Mis_notas2[notas] + "</li>";
+            }
+
+            //ejercicio 4
+            const arry1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+            const arry2 = ["bonita", "Guapa", "Bella", "Pintoresca", "Hermosa"];
+
+            let tabla = "<table border='1'>";
+
+            for (let b of arry2) {
+                tabla += "<tr>";
+
+                for (let a of arry1) {
+                    tabla += "<td>" + a + " - " + b + "</td>";
+                }
+
+                tabla += "</tr>";
+            }
+
+            tabla += "</table>";
+
+            document.getElementById("ejercicio4").innerHTML = tabla;
+
+
+            //ejercicio 5
+            let formulario = "<form>";
+
+            for (let ciudad of arr1) {
+                formulario += "<input type='button' value='" + ciudad +
+                "' onclick='alert(\"La ciudad mas bonita es " + ciudad + "\")'>";
+            }
+
+            formulario += "</form>";
+
+            document.getElementById("ejercicio5").innerHTML = formulario;
+
+            //ejercicio 6
+
+
+    </script>
+</body>
+</html>
