@@ -38,6 +38,37 @@
     <!--Ejercio 6-->
     <h3>Escribe un programa que dibuje la frase "hola que tal" 10 veces cada vez mas pequeña ... puedes usar algo como</h3>
     <p id="ejercicio6"></p>
+    
+    <!--Ejercicio 7-->
+    <h3>Ejercicio 7. Copia este codigo y ejecutalo modificalo para 
+        hacerlo con un while y un do loop</h3>
+    <form name="selectForm">
+    <p>
+        <label for="musicTypes">
+        Elija algunos tipos de música, luego haga clic en el botón de abajo:</label >
+        <select id="musicTypes" name="musicTypes" multiple="multiple">
+            <option selected="selected">R&B</option>
+            <option>Jazz</option>
+            <option>Blues</option>
+            <option>New Age</option>
+            <option>Classical</option>
+            <option>Opera</option>
+        </select>
+    </p>
+    <p><input id="btn" type="button" value="¿Cuántos están seleccionados?" /></p>
+    </form>
+      
+    
+    <!--Ejercicio 8-->
+    <h3>Ejercicio 8. un bucle para pintar esta figura usando una tabla que ponemos de fondo el color adecuado la
+        tabla debe tener estos valores (pista es un array 3x3)</h3>
+    <p id="ejercicio8"></p>
+
+    <!--Ejercicio 9-->
+    <h3>Ejercicio 9. Modifica el anterior para crear esta figura (PISTA: es un
+        array 6x6 y se usan los colores "f0f","ff0", "0ff")</h3>
+    <p id="ejercicio9"></p>
+
 
     <script>
         //ejercicio 1
@@ -49,60 +80,163 @@
         }
 
         //ejercicio 2
-        document.write("<h2> Ejercicio 2 </h2> ")
-            const arr4 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
-            const arr5 = ["#000", "#040", "#070", "#090", "#0A0", "#0D0", "#0F0"];
+        const arr4 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+        const arr5 = ["#000", "#040", "#070", "#090", "#0A0", "#0D0", "#0F0"];
+        
+        let i = 0;
+
+        for (let ciudadDegradado of arr4) {
+            document.getElementById("ejercicio2").innerHTML +=
+            '<li style="color: ' + arr5[i] + ';">' + ciudadDegradado + '</li>';
+            i++;
+        }
+
+        //ejercicio 3
+        const Mis_notas2 = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };
+        for (let notas in Mis_notas2) {
+            document.getElementById("ejercicio3").innerHTML +=
+            '<li>' + notas + " " + Mis_notas2[notas] + "</li>";
+        }
+
+        //ejercicio 4
+        const arry1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
+        const arry2 = ["bonita", "Guapa", "Bella", "Pintoresca", "Hermosa"];
+
+        let tabla = "<table border='1'>";
+
+        for (let b of arry2) {
+            tabla += "<tr>";
+
+            for (let a of arry1) {
+                tabla += "<td>" + a + " - " + b + "</td>";
+            }
+
+            tabla += "</tr>";
+        }
+
+        tabla += "</table>";
+
+        document.getElementById("ejercicio4").innerHTML = tabla;
+
+
+        //ejercicio 5
+        let formulario = "<form>";
+
+        for (let ciudad of arr1) {
+            formulario += "<input type='button' value='" + ciudad +
+            "' onclick='alert(\"La ciudad mas bonita es " + ciudad + "\")'>";
+        }
+
+        formulario += "</form>";
+
+        document.getElementById("ejercicio5").innerHTML = formulario;
+
+        //ejercicio 6
+        const saludo = ["hola que tal"];
+        const arrt = ["60", "55", "50", "45", "40", "35", "30", "25", "20", "15"];
+        
+        let it = 0;
+
+        for (let i = 1; i<= 10; i++){
+            for (let tamanyoSaludo of saludo) {
+            document.getElementById("ejercicio6").innerHTML +=
+            '<li style="font-size: ' + arrt[it] + 'px;">' + tamanyoSaludo + '</li>';
+            it++;
+            }
+        }
+        
+        //ejercicio 7
+
+        //while
+        /*
+        function howMany(selectObject) {
+            let numberSelected = 0;
             
             let i = 0;
 
-            for (let ciudadDegradado of arr4) {
-                document.getElementById("ejercicio2").innerHTML +=
-                '<li style="color: ' + arr5[i] + ';">' + ciudadDegradado + '</li>';
+            while (i < selectObject.options.length) {
+                if (selectObject.options[i].selected) {
+                numberSelected++;
+                }
                 i++;
             }
-
-            //ejercicio 3
-            const Mis_notas2 = { mates: 9, Lengua: 6, Efisica: 5, Quimica: 9, fisica: 5, ingles: 5 };
-            for (let notas in Mis_notas2) {
-                document.getElementById("ejercicio3").innerHTML +=
-                '<li>' + notas + " " + Mis_notas2[notas] + "</li>";
+            return numberSelected;
             }
 
-            //ejercicio 4
-            const arry1 = ["Malaga", "Sevilla", "Cordoba", "Huelva", "Cadiz", "Almeria", "Granada"];
-            const arry2 = ["bonita", "Guapa", "Bella", "Pintoresca", "Hermosa"];
+            let btn = document.getElementById("btn");
 
-            let tabla = "<table border='1'>";
+            btn.addEventListener("click", function () {
+            alert(
+                "Número de opciones seleccionadas: " +
+                howMany(document.selectForm.musicTypes)
+            );
+            });
+        */
+            //do while
+            function howMany(selectObject) {
+            let numberSelected = 0;
+            let i = 0;
 
-            for (let b of arry2) {
-                tabla += "<tr>";
-
-                for (let a of arry1) {
-                    tabla += "<td>" + a + " - " + b + "</td>";
+            if (selectObject.options.length > 0) {
+                do {
+                if (selectObject.options[i].selected) {
+                    numberSelected++;
                 }
-
-                tabla += "</tr>";
+                i++;
+                } while (i < selectObject.options.length);
+            }
+            return numberSelected;
             }
 
-            tabla += "</table>";
+            let btn = document.getElementById("btn");
 
-            document.getElementById("ejercicio4").innerHTML = tabla;
+            btn.addEventListener("click", function () {
+            alert(
+                "Número de opciones seleccionadas: " +
+                howMany(document.selectForm.musicTypes)
+            );
+            });
 
+            //ejercicio 8
+             const colores = [
+                            ["blue", "lime", "red"],
+                            ["red", "blue", "lime"],
+                            ["lime", "red", "blue"]
+                            ];
 
-            //ejercicio 5
-            let formulario = "<form>";
+            let tabla8 = "<table width='300px' height='300px' border='0' cellpadding='0' cellspacing='0'>";
+            for (let i = 0; i < 3; i++) {
+            tabla += "<tr>";
 
-            for (let ciudad of arr1) {
-                formulario += "<input type='button' value='" + ciudad +
-                "' onclick='alert(\"La ciudad mas bonita es " + ciudad + "\")'>";
+                for (let j = 0; j < 3; j++) {
+                    tabla8 += "<td style='background-color:" + colores[i][j] + ";'></td>";
+                }
+                tabla8 += "</tr>";
             }
+            tabla8 += "</table>";
+            document.getElementById("ejercicio8").innerHTML = tabla8;
 
-            formulario += "</form>";
+        //ejercicio 9
 
-            document.getElementById("ejercicio5").innerHTML = formulario;
+        const colores2 = [
+                        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"],
+                        ["#ff0", "#ff0", "#f0f", "#f0f", "#ff0", "#ff0"],
+                        ["#ff0", "#ff0", "#0ff", "#0ff", "#ff0", "#ff0"],
+                        ["#ff0", "#ff0", "#0ff", "#0ff", "#ff0", "#ff0"],
+                        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"],
+                        ["#f0f", "#f0f", "#f0f", "#f0f", "#f0f", "#f0f"]
+                        ];
 
-            //ejercicio 6
-
+            let tabla9 = "<table width='300px' height='300px' border='0' cellpadding='0' cellspacing='0'>";
+            for (let i = 0; i < 6; i++) {
+            tabla9 += "<tr>";
+                for (let j = 0; j < 6; j++) {
+                    tabla9 += "<td style='background-color:" + colores2[i][j] + ";'></td>";
+                }
+                tabla9 += "</tr>";
+            }
+            tabla9 += "</table>";
+            document.getElementById("ejercicio9").innerHTML = tabla9;
 
     </script>
 </body>
