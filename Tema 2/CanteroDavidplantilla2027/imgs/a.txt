@@ -1,0 +1,7 @@
+jaguar.jpg
+leon.jpg
+puma.jpg
+lince.jpg
+tigre.jpg
+guepardo.jpg
+a.txt
