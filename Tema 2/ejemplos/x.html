@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--ejercicio 1-->
+    <h3> En un documento html crea un script que te pida tres numeros enteros con un prompt y haga la
+    siguiente formula (Numero1*Numero2 + Numero3)*Numero3 . Ojo deben ser numeros para ello
+    debes comprobar su tipo si no son enteros debes dar un error.  </h3>
+    <script>
+        let num1 = parseInt(prompt("1. dime un número"));
+        let num2 = parseInt(prompt("1. dime un número"));
+        let num3 = parseInt(prompt("1. dime un número"));
+
+        let calculo = 0;
+
+        if(Number.isNaN(num1) || Number.isNaN(num3) || Number.isNaN(num2)){
+            document.write("Error")
+        } else{
+            calculo = (num1 * num2 + num3) * num3;
+             document.write("(" + num1 + " * " + num2 + " + " + num3 + ") * " + num3 + " = " + calculo)
+        }
+    </script>
+
+    <h3>2. Realiza un ejercicio que muestre un ejemplo en el que se use  typeof  e instanceof
+        para ver todos los tipos de datos en javascript.</h3>
+    <script>
+        let texto = "Hola mundo";
+        let numero = 25;
+        let decimal = 3.14;
+        let booleano = true;
+        let indefinido;
+        let nulo = null;
+        
+
+        let array = [1, 2, 3];
+        let objeto = { nombre: "Ana" };
+        let fecha = new Date();
+        let funcion = function() {};
+
+        document.write("<b>Operador typeof</b><br>");
+
+        document.write("Texto: " + typeof texto + "<br>");
+        document.write("Número: " + typeof numero + "<br>");
+        document.write("Decimal: " + typeof decimal + "<br>");
+        document.write("Booleano: " + typeof booleano + "<br>");
+        document.write("Indefinido: " + typeof indefinido + "<br>");
+        document.write("Nulo: " + typeof nulo + "<br>");
+        document.write("Array: " + typeof array + "<br>");
+        document.write("Objeto: " + typeof objeto + "<br>");
+        document.write("Función: " + typeof funcion + "<br>");
+
+        document.write("<b>Operador instanceof</b><br>");
+
+        document.write("¿Es un array? " + (array instanceof Array) + "<br>");
+        document.write("¿Es un objeto? " + (objeto instanceof Object) + "<br>");
+        document.write("¿Es una función? " + (funcion instanceof Function) + "<br>");
+    </script>
+
+    <h3>3. Debes leer un numero de un mes con prompt  ( 1 al 12 numero del mes ) y usando
+    el operador condicional ternario y debes usar esta tabla para decir el filosofo
+    asociado  (si es mas de 7 dabe dar un msg de no conocido)  (Platón, Aristóteles,
+    San Agustín, Santo Tomás, Descartes, Rousseau, Locke)</h3>
+
+    <script>
+        let numMes = parseInt(prompt("3. dime un numero del 1 al 12"));
+        let resultado = numMes == 1 ? "Aristoles" :
+        numMes == 2 ? "platon" : numMes == 3 ? "San agustin" :
+        numMes == 4 ? "Santo tomas" : numMes == 5 ? "Descartes" :
+        numMes == 6 ? "Rousseau" : numMes == 7 ? "locke" :
+        numMes >= 8 && numMes <= 12 ? "Otro filósofo" :
+        "Error";
+        document.write(numMes + " = " + resultado);
+
+    </script>
+    
+    <h3>4. Debes leer dos numeros con prompt y una operación.  y mostrar el resultado de una operación que
+    sera una de estas . El resultado debe aparecer tanto en Decimal como en Binario. </h3>
+    <script>
+        let nume1 = parseInt(prompt("Dime el primer número"));
+        let nume2 = parseInt(prompt("Dime el segundo número"));
+        let operacion = prompt("Dime la operación: AND, OR, XOR, DIZQ o DDER");
+
+        let resultado4;
+
+        if (operacion == "AND") {
+            resultado4 = nume1 & nume2;
+        }
+        else if (operacion == "OR") {
+            resultado4 = nume1 | nume2;
+        }
+        else if (operacion == "XOR") {
+            resultado4 = nume1 ^ nume2;
+        }
+        else if (operacion == "DIZQ") {
+            resultado4 = nume1 << nume2;
+        }
+        else if (operacion == "DDER") {
+            resultado4 = nume1 >> nume2;
+        }
+        else {
+            document.write("Operación incorrecta");
+        }
+
+        if (resultado !== undefined) {
+            document.write("<br>Primer número: " + nume1);
+            document.write("<br>Segundo número: " + nume2);
+            document.write("<br>Operación: " + operacion);
+            document.write("<br>Resultado decimal: " + resultado4);
+            document.write("<br>Resultado binario: " + resultado4.toString(2));
+        }
+    </script>
+
+    <h3>5. Haz un  Debes leer un valor opcion con un prompt que con un switch me diga usando los breaks en
+    los lugares adecuados (si no se hace asi el ejercicio no valdra)</h3>
+    <script>
+        let opcion = parseInt(prompt("5. Dime un valor"));
+        let text = "";
+
+        switch(opcion){
+            case 1:
+            case 2: 
+            case 3: 
+                text = "Números pequeños";
+                break;
+             case 7:
+        text += "La opción es mayor o igual que 7<br>";
+    case 6:
+        text += "La opción es mayor o igual que 6<br>";
+    case 5:
+        text += "La opción es mayor o igual que 5<br>";
+        break;
+            case 8: 
+                text = "Número 8";
+                break;
+            case 9: 
+                text = "Número 9";
+                break;
+            default: 
+                text = "error";
+                break
+        }
+
+        document.write(text);
+    </script>
+
+    <h3>Bucles Debes leer un numero i con un prompt y dependiendo de él, debes hacer una tabla como
+    el siguiente los colores debes hacerlos con un &lt;td bgcolor=”valor que depende de la columna”>
+    y por ejemplo podeis coger los colores de este array 
+    var colores=["#f25","#f50","#f85","#F11","#F36","#fA5","#f5B","#f25","#f50","#f85","#F11"]
+    </h3>
+
+    <script>
+        let num = parseInt(prompt("6. Dime un numero"));
+        var colores = ["#f25", "#f50", "#f85", "#F11", "#F36",
+              "#fA5", "#f5B", "#f25", "#f50", "#f85", "#F11"];
+
+        document.write("<table border='1' style='border-collapse: collapse; text-align: center; color: white; font-weight: bold;'>");
+    
+    
+        for (var fila = 0; fila < num; fila++) {
+            document.write("<tr>");
+            
+            
+            for (var col = 0; col < num; col++) {
+                var colorActual = colores[col % colores.length]; 
+                var numeroAMostrar = col + 1;
+                
+                document.write("<td bgcolor='" + colorActual + "' width='80' height='30'>" + numeroAMostrar + "</td>");
+            }
+            
+            document.write("</tr>");
+        }
+        
+        document.write("</table>");
+
+    </script>
+
+    <h3>7. Bucles1 Dado el objeto siguiente recorrelo con el bucle mas
+        adecuado  viendo su contenido y sus propiedades  
+        var persona = {   Nombre: "paco",   Apellido: "Lopez", nacimiento:
+        "11/12/1969", trabajo:"informatico" , sexo: "hombre", amigos:
+        ["juan","pedro","miguel"],sueldo:40000, 
+        trabajo:"olists 
+        UltimoProjecto: "jse.js" }</h3>
+    <script>
+        var persona = {
+            Nombre: "paco",   
+            Apellido: "Lopez", 
+            nacimiento:"11/12/1969", 
+            trabajo:"informatico" , 
+            sexo: "hombre", 
+            amigos:["juan","pedro","miguel"],
+            sueldo:40000, 
+            trabajo:"olists", 
+            UltimoProjecto: "jse.js"};
+
+        for (let datos in persona) {
+            document.write('<li>' + datos + " " + persona[datos] + "</li>");
+        }
+    </script>
+
+    <h3>8. Bucles2 Dado el array siguiente recorrelo con el bucles mas adecuado  mostrando todas
+        las imagenes  que son el nombre del signo.jpg 
+        var signos = [ "capricornio", "acuario","piscis","aries", "tauro" ];</h3>
+    <script>
+        var signos = [ "capricornio", "acuario", "piscis", "aries", "tauro" ];
+var filaImg = "<tr>", filaTxt = "<tr>";
+
+    for (var s of signos) {
+        filaImg += "<td><img src='./signos/" + s + ".jpg' width='150' heigth='150'></td>";
+        filaTxt += "<td>" + (s === "pisicis" ? "piscis" : s) + "</td>";
+    }
+
+    document.write("<table border='1' style='text-align:center;'>" + filaImg + "</tr>" + filaTxt + "</tr></table>");
+    </script>
+<h3>9. Bucles3 Debes crear una tabla de Botones usando un bucle como en la practica bucles 
+    Debes crear una tabla como en el ejercicio ultimo de la práctica de los bucles con colores pero, el cambio
+    en vez de ser sobre el bgcolor de la celda, es para cambiar el codigo de una boton como el del ejercicio 5 de
+    la practica de los bucles.</h3>
+    <script>
+        var tablero = [
+        ["mina", "hueco", "hueco", "mina", "hueco"],
+        ["hueco", "hueco", "mina", "hueco", "hueco"],
+        ["hueco", "mina", "hueco", "hueco", "mina"],
+        ["mina", "hueco", "hueco", "mina", "hueco"],
+        ["hueco", "hueco", "mina", "hueco", "hueco"]
+        ];
+
+        function comprobar(f, c) {
+            alert("Es " + tablero[f][c]);
+        }
+
+        document.write("<table>");
+        for (var i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < 5; j++) {
+                document.write("<td><button onclick='comprobar(" + i + "," + j + ")'>MoH?</button></td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>
