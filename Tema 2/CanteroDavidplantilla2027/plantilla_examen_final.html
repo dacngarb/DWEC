@@ -321,7 +321,7 @@
 
     for (var animal of animales) {
         
-      filaImagen += "<td><img src='./imgs/" + s + ".jpg' width='150' heigth='150'></td>";
+      filaImagen += "<td><img src='./imgs/" + animal + ".jpg' width='150' heigth='150'></td>";
       filaTxt += "<td>" + (animal == "guepardo" ? "guepardo" : animal) + "</td>";
     }
     document.getElementById("resultado8").innerHTML = "<table border='1' style='text-align:center;'>" + filaImagen + "</tr>" + filaTxt + "</tr></table>";
