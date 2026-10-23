@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+    <h1>CanteroDavid3-03JSObjetosBooleanyDate</h1>
+    <h3>Ejercicio 1. Crea un script que lea dos números con prompt y que cree una ventanas nueva con el tamaño
+    indico</h3>
+    <button onclick="abrir()">abrir</button>
+    
+    
+    <h3>Ejercicio 2. Modifica el script anterior para cerrarla</h3>
+    <button onclick="cerrar()">Cerrar</button>
+    
+    
+    <h3>Ejercicio 3. Modifica el script anterior para comprobar si esta abierta o cerrada</h3>
+    <button onclick="comprobar()">Comprobar</button>
+    <p id="ejercicio3"></p>
+
+    <h3>Ejercicio 4. Crea un script que lea una url con prompt y que la abra en una nueva ventana y 
+        que muestre sus siguientes propiedades.</h3>
+    <button onclick="abrirUrl()">abrir</button>
+    <p id="eje4"></p>
+
+
+    <h3>Ejercicio 5. Muestra una ventana emergente de alerta con el mensaje “ALERTA Te estan Robando el banco”
+        y después Muestra una ventana emergente de alerta con el mensaje “Estas de acuerdo?” y dependiendo
+        de él Escribe de acuerdo o no.</h3>
+    <p id="eje5"></p>
+
+    <h3>Ejercicio 6. Usa este código para crear un ejemplo de clearInterval() Resetea el cronómetro ajustado con
+    setInterval() y setInterval( funcion, milisegundos)</h3>
+    <p id="eje6"></p>
+    <button onclick="reset()">Parar</button>
+    <div id="id2"></div>
+
+    <h3>Ejercicio 7. Modificalo para que te muestre la hora cada segundo</h3>
+    <p></p>
+
+    <script>
+        let ancho = parseInt(prompt("Dime el ancho:"))
+        let alto = parseInt(prompt("Dime el alto:"))
+        let subVentana = null;
+        function abrir(){
+        subVentana = window.open("ejercicio.html","ejercicio1","height= " + alto +",width=" + ancho);
+
+        }
+
+        function cerrar(){
+            if (subVentana != null && !subVentana.closed){
+                subVentana.close()
+            }
+           subVentana = null;
+        }
+
+        function comprobar(){
+            if(subVentana === null || subVentana.closed){
+                document.getElementById("ejercicio3").innerHTML = "Cerrar";
+            }else{
+                document.getElementById("ejercicio3").innerHTML = "Abierta";
+            }
+        }
+
+
+        let url = prompt("Dame una URL: ");
+        function abrirUrl(){
+            subVentana = window.open(url,"ejercicio1");
+            let status = "";
+            if(subVentana.closed){
+                status = "Cerrado"
+            }else{
+                status = "Abierto"
+            }
+            
+            document.getElementById("eje4").innerHTML = 
+            "Estado: " + status +
+            "<br>Length: " + subVentana.length + 
+            "<br>Location: " + subVentana.location + 
+            "<br>Name: " + subVentana.name;
+        }
+        alert("Te estan robando")
+        let robo = prompt("Estas de acuerdo?");
+        let respuesta = "";
+        if (robo == "si"){
+            respuesta = "si está de acuerdo"
+        }else if(robo == "no"){
+            respuesta = "no está de acuerdo"
+        }
+        document.getElementById("eje5").innerHTML = respuesta;
+
+
+        function dihola(){
+        document.getElementById("id2").innerHTML += "<br>" + "Hello";
+        }
+        intervalID = setInterval(dihola,500)
+
+        function reset(){
+
+            window.clearInterval(intervalID);
+            intervalID = null;
+        }
+
+        
+    </script>
+</body>
+</html>
