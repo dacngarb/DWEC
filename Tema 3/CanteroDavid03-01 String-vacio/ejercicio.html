@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+
+    <h1>03-01 Objetos Nativos en Javascript - String</h1>
+
+    <h2 id="ejercicio1">Ejercicio 1</h2>
+    <button onclick="ejercicio1()">Ejecutar</button>
+    <p id="resultado1"></p>
+
+    <h2 id="ejercicio2">Ejercicio 2</h2>
+    <button onclick="ejercicio2()">Ejecutar</button>
+    <p id="resultado2"></p>
+
+    <h2 id="ejercicio3">Ejercicio 3</h2>
+    <button onclick="ejercicio3()">Ejecutar</button>
+    <p id="resultado3"></p>
+
+    <h2 id="ejercicio4">Ejercicio 4</h2>
+    <button onclick="ejercicio4()">Ejecutar</button>
+    <p id="resultado4"></p>
+
+    <h2 id="ejercicio5">Ejercicio 5</h2>
+    <button onclick="ejercicio5()">Ejecutar</button>
+    <p id="resultado5"></p>
+
+    <h2 id="ejercicio6">Ejercicio 6</h2>
+    <button onclick="ejercicio6()">Ejecutar</button>
+    <p id="resultado6"></p>
+
+    <h2 id="ejercicio7">Ejercicio 7</h2>
+    <button onclick="ejercicio7()">Ejecutar</button>
+    <p id="resultado7"></p>
+
+    <h2 id="ejercicio8">Ejercicio 8</h2>
+    <button onclick="ejercicio8()">Ejecutar</button>
+    <p id="resultado8"></p>
+
+    <h2 id="ejercicio9">Ejercicio 9</h2>
+    <button onclick="ejercicio9()">Ejecutar</button>
+    <p id="resultado9"></p>
+
+    <h2 id="ejercicio10">Ejercicio 10</h2>
+    <button onclick="ejercicio10()">Ejecutar</button>
+    <p id="resultado10"></p>
+
+    <h2 id="ejercicio11">Ejercicio 11</h2>
+    <button onclick="ejercicio11()">Ejecutar</button>
+    <p id="resultado11"></p>
+
+    <h2 id="ejercicio12">Ejercicio 12</h2>
+    <button onclick="ejercicio12()">Ejecutar</button>
+    <p id="resultado12"></p>
+
+    <h2 id="ejercicio13">Ejercicio 13</h2>
+    <button onclick="ejercicio13()">Ejecutar</button>
+    <p id="resultado13"></p>
+
+    <h2 id="ejercicio14">Ejercicio 14</h2>
+    <button onclick="ejercicio14()">Ejecutar</button>
+    <p id="resultado14"></p>
+
+    <h2 id="ejercicio15">Ejercicio 15</h2>
+    <button onclick="ejercicio15()">Ejecutar</button>
+    <p id="resultado15"></p>
+
+    <h2 id="ejercicio16">Ejercicio 16</h2>
+    <button onclick="ejercicio16()">Ejecutar</button>
+    <p id="resultado16"></p>
+
+    <h2 id="ejercicio17">Ejercicio 17</h2>
+    <button onclick="ejercicio17()">Ejecutar</button>
+    <p id="resultado17"></p>
+
+    <script>
+
+        // EJERCICIO 1 - Length
+        function ejercicio1() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado1").innerHTML =
+                "Tamaño: " + texto.length;
+        }
+
+        // EJERCICIO 2 - CharAt
+        function ejercicio2() {
+            let texto = prompt("Introduce un texto");
+            let mitad = Math.floor(texto.length / 2);
+            document.getElementById("resultado2").innerHTML =
+                "Carácter central: " + texto.charAt(mitad);
+        }
+
+        // EJERCICIO 3 - CharCodeAt
+        function ejercicio3() {
+            let texto = prompt("Introduce un texto");
+            let mitad = Math.floor(texto.length / 2);
+            document.getElementById("resultado3").innerHTML =
+                "Carácter: " + texto.charAt(mitad) +
+                "<br>Unicode: " + texto.charCodeAt(mitad);
+        }
+
+        // EJERCICIO 4 - Length y CharCodeAt
+        function ejercicio4() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado4").innerHTML =
+                "Tamaño: " + texto.length +
+                "<br>Unicode: " + texto.charCodeAt(0);
+        }
+
+        // EJERCICIO 5 - Concat
+        function ejercicio5() {
+            let texto1 = prompt("Introduce el primer texto");
+            let texto2 = prompt("Introduce el segundo texto");
+            document.getElementById("resultado5").innerHTML =
+                texto1.concat(texto2);
+        }
+
+        // EJERCICIO 6 - FromCharCode
+        function ejercicio6() {
+            let numero = Number(prompt("Introduce un número"));
+            if (Number.isInteger(numero) && numero >= 0 && numero <= 65535) {
+                document.getElementById("resultado6").innerHTML =
+                    String.fromCharCode(numero);
+            } else {
+                document.getElementById("resultado6").innerHTML =
+                    "Error: introduce un número válido";
+            }
+        }
+
+        // EJERCICIO 7 - IndexOf
+        function ejercicio7() {
+            let texto1 = prompt("Introduce lo que quieres buscar");
+            let texto2 = prompt("Introduce el texto donde buscar");
+            document.getElementById("resultado7").innerHTML =
+                "Primera aparición: " + texto2.indexOf(texto1);
+        }
+
+        // EJERCICIO 8 - Match
+        function ejercicio8() {
+            let cadena = "Los temas son tema 1, tema 3, tema 5 y tema 6";
+            let expresion = /(tema \d+)/i;
+            let hallado = cadena.match(expresion);
+
+            document.getElementById("resultado8").innerHTML =
+                cadena + "<br>Expresión encontrada: " + hallado[1];
+        }
+
+        // EJERCICIO 9 - Replace
+        function ejercicio9() {
+            let texto1 = prompt("Introduce el texto que quieres reemplazar");
+            let texto2 = prompt("Introduce el texto donde buscar");
+            let reemplazo = prompt("Introduce el texto nuevo");
+            document.getElementById("resultado9").innerHTML =
+                texto2.replace(texto1, reemplazo);
+        }
+
+        // EJERCICIO 10 - Search
+        function ejercicio10() {
+            let texto = prompt("Introduce un texto");
+            let buscar = prompt("Introduce lo que quieres buscar");
+            document.getElementById("resultado10").innerHTML =
+                "Posición: " + texto.search(buscar);
+        }
+
+        // EJERCICIO 11 - Slice
+        function ejercicio11() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado11").innerHTML =
+                texto.slice(0, Math.floor(texto.length / 2));
+        }
+
+        // EJERCICIO 12 - Split
+        function ejercicio12() {
+            let texto = prompt("Introduce una frase");
+            let palabras = texto.split(" ");
+            document.getElementById("resultado12").innerHTML =
+                palabras;
+        }
+
+        // EJERCICIO 13 - Substr
+        function ejercicio13() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado13").innerHTML =
+                texto.substr(5, 5);
+        }
+
+        // EJERCICIO 14 - Substring
+        function ejercicio14() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado14").innerHTML =
+                texto.substring(5, 10);
+        }
+
+        // EJERCICIO 15 - Mayúsculas y minúsculas
+        function ejercicio15() {
+            let texto = prompt("Introduce un texto");
+            document.getElementById("resultado15").innerHTML =
+                "Minúsculas: " + texto.toLowerCase() +
+                "<br>Mayúsculas: " + texto.toUpperCase();
+        }
+
+        // EJERCICIO 16 - LastIndexOf
+        function ejercicio16() {
+            let texto1 = prompt("Introduce lo que quieres buscar");
+            let texto2 = prompt("Introduce el texto donde buscar");
+            document.getElementById("resultado16").innerHTML =
+                "Última aparición: " + texto2.lastIndexOf(texto1);
+        }
+
+        // EJERCICIO 17 - Split y negrita
+        function ejercicio17() {
+            let buscar = prompt("Introduce la letra que quieres destacar");
+            let texto = prompt("Introduce una palabra");
+
+            let partes = texto.split(buscar);
+            let resultado = "";
+
+            for (let i = 0; i < partes.length; i++) {
+                resultado += partes[i];
+
+                if (i < partes.length - 1) {
+                    resultado += "<b>" + buscar + "</b>";
+                }
+            }
+
+            document.getElementById("resultado17").innerHTML = resultado;
+        }
+
+    </script>
+
+</body>
+</html>

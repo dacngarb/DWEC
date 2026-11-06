@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+
+    <h1>Ejercicios JavaScript: Location, Navigator y Geolocation</h1>
+
+    <h2>Ejercicio 1. innerHTML</h2>
+    <div id="elementoaCambiar"></div>
+    <button onclick="ejercicio1()">Ejecutar</button>
+
+    <h2>Ejercicio 2. Propiedades de Location</h2>
+    <button onclick="ejercicio2()">Mostrar propiedades</button>
+    <p id="resultado2"></p>
+
+    <h2>Ejercicio 3. location.assign()</h2>
+    <button onclick="ejercicio3()">Cargar IES Playamar</button>
+
+    <h2>Ejercicio 4. Cargar una URL desde input o prompt</h2>
+    <input type="text" id="url" placeholder="Escribe una URL">
+    <button onclick="ejercicio4()">Cargar URL</button>
+    <button onclick="ejercicio4Prompt()">Introducir con prompt</button>
+
+    <h2>Ejercicio 5. location.reload()</h2>
+    <button onclick="ejercicio5()">Recargar página</button>
+
+    <h2>Ejercicio 6. location.replace()</h2>
+    <button onclick="ejercicio6()">Ir a IES Playamar con replace</button>
+
+    <h2>Ejercicio 7. Diferencia entre assign y replace</h2>
+    <p>
+        assign permite volver a la página anterior.
+        replace sustituye la página actual y no permite volver a ella
+        usando el botón Atrás.
+    </p>
+
+    <h2>Ejercicio 8. Propiedades de Navigator</h2>
+    <button onclick="ejercicio8()">Mostrar propiedades</button>
+    <p id="resultado8"></p>
+
+    <h2>Ejercicio 9. Geolocalización</h2>
+    <button onclick="ejercicio9()">Mostrar coordenadas</button>
+    <p id="resultado9"></p>
+
+    <h2>Ejercicio 10. Cargar Google Maps en un iframe</h2>
+    <button onclick="ejercicio10()">Cargar mapa</button>
+    <br><br>
+    <iframe id="mapa" width="500" height="350"></iframe>
+
+    <h2>Ejercicio 11. Aumentar y reducir el zoom del mapa</h2>
+    <button onclick="aumentarZoom()">Aumentar zoom</button>
+    <button onclick="reducirZoom()">Reducir zoom</button>
+    <p id="resultado11"></p>
+
+    <script>
+
+        // EJERCICIO 1
+        function ejercicio1() {
+            document.getElementById("elementoaCambiar").innerHTML =
+                "Texto nuevo";
+        }
+
+
+        // EJERCICIO 2
+        function ejercicio2() {
+            document.getElementById("resultado2").innerHTML =
+                "Hash: " + location.hash +
+                "<br>Host: " + location.host +
+                "<br>Hostname: " + location.hostname +
+                "<br>Href: " + location.href +
+                "<br>Pathname: " + location.pathname +
+                "<br>Port: " + location.port +
+                "<br>Protocol: " + location.protocol +
+                "<br>Search: " + location.search;
+        }
+
+
+        // EJERCICIO 3
+        function ejercicio3() {
+            location.assign("https://www.iesplayamar.es");
+        }
+
+
+        // EJERCICIO 4: DESDE INPUT
+        function ejercicio4() {
+            let direccion = document.getElementById("url").value;
+
+            if (direccion != "") {
+                location.assign(direccion);
+            } else {
+                alert("Escribe una URL");
+            }
+        }
+
+        // EJERCICIO 4: DESDE PROMPT
+        function ejercicio4Prompt() {
+            let direccion = prompt("Escribe una URL:");
+
+            if (direccion != null && direccion != "") {
+                location.assign(direccion);
+            }
+        }
+
+
+        // EJERCICIO 5
+        function ejercicio5() {
+            location.reload();
+        }
+
+
+        // EJERCICIO 6
+        function ejercicio6() {
+            location.replace("https://www.iesplayamar.es");
+        }
+
+
+        // EJERCICIO 8
+        function ejercicio8() {
+            document.getElementById("resultado8").innerHTML =
+                "appCodeName: " + navigator.appCodeName +
+                "<br>appName: " + navigator.appName +
+                "<br>appVersion: " + navigator.appVersion +
+                "<br>cookieEnabled: " + navigator.cookieEnabled +
+                "<br>platform: " + navigator.platform +
+                "<br>userAgent: " + navigator.userAgent;
+        }
+
+
+        // EJERCICIO 9
+        function ejercicio9() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    mostrarPosicion,
+                    mostrarError
+                );
+            } else {
+                document.getElementById("resultado9").innerHTML =
+                    "La geolocalización no está disponible";
+            }
+        }
+
+        function mostrarPosicion(position) {
+            document.getElementById("resultado9").innerHTML =
+                "Latitud: " + position.coords.latitude +
+                "<br>Longitud: " + position.coords.longitude;
+        }
+
+        function mostrarError(error) {
+            document.getElementById("resultado9").innerHTML =
+                "No se ha podido obtener la ubicación. Error: " +
+                error.message;
+        }
+
+
+        // EJERCICIO 10
+        function ejercicio10() {
+            let mapa = document.getElementById("mapa");
+
+            mapa.contentWindow.location.assign(
+                "https://www.google.es/maps/@36.643675,-4.4902875,15z?output=embed"
+            );
+        }
+
+
+        // EJERCICIO 11
+        let zoom = 15;
+
+        function aumentarZoom() {
+            if (zoom < 21) {
+                zoom++;
+                cargarMapa();
+            }
+        }
+
+        function reducirZoom() {
+            if (zoom > 1) {
+                zoom--;
+                cargarMapa();
+            }
+        }
+
+        function cargarMapa() {
+            let direccion =
+                "https://www.google.es/maps/@36.643675,-4.4902875," +
+                zoom + "z?output=embed";
+
+            document.getElementById("mapa").src = direccion;
+
+            document.getElementById("resultado11").innerHTML =
+                "Zoom actual: " + zoom;
+        }
+
+    </script>
+
+</body>
+</html>

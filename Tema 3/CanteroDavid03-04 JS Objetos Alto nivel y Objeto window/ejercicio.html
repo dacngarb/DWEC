@@ -1,109 +1,235 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Cantero García</title>
 </head>
 <body>
+
     <h1>CanteroDavid3-03JSObjetosBooleanyDate</h1>
-    <h3>Ejercicio 1. Crea un script que lea dos números con prompt y que cree una ventanas nueva con el tamaño
-    indico</h3>
-    <button onclick="abrir()">abrir</button>
-    
-    
-    <h3>Ejercicio 2. Modifica el script anterior para cerrarla</h3>
-    <button onclick="cerrar()">Cerrar</button>
-    
-    
-    <h3>Ejercicio 3. Modifica el script anterior para comprobar si esta abierta o cerrada</h3>
-    <button onclick="comprobar()">Comprobar</button>
-    <p id="ejercicio3"></p>
 
-    <h3>Ejercicio 4. Crea un script que lea una url con prompt y que la abra en una nueva ventana y 
-        que muestre sus siguientes propiedades.</h3>
-    <button onclick="abrirUrl()">abrir</button>
-    <p id="eje4"></p>
+    <h2 id="ejercicio1">Ejercicio 1</h2>
+    <button onclick="ejercicio1()">Abrir</button>
 
+    <h2 id="ejercicio2">Ejercicio 2</h2>
+    <button onclick="ejercicio2()">Cerrar</button>
 
-    <h3>Ejercicio 5. Muestra una ventana emergente de alerta con el mensaje “ALERTA Te estan Robando el banco”
-        y después Muestra una ventana emergente de alerta con el mensaje “Estas de acuerdo?” y dependiendo
-        de él Escribe de acuerdo o no.</h3>
-    <p id="eje5"></p>
+    <h2 id="ejercicio3">Ejercicio 3</h2>
+    <button onclick="ejercicio3()">Comprobar</button>
+    <p id="resultado3"></p>
 
-    <h3>Ejercicio 6. Usa este código para crear un ejemplo de clearInterval() Resetea el cronómetro ajustado con
-    setInterval() y setInterval( funcion, milisegundos)</h3>
-    <p id="eje6"></p>
-    <button onclick="reset()">Parar</button>
-    <div id="id2"></div>
+    <h2 id="ejercicio4">Ejercicio 4</h2>
+    <button onclick="ejercicio4()">Abrir URL</button>
+    <p id="resultado4"></p>
 
-    <h3>Ejercicio 7. Modificalo para que te muestre la hora cada segundo</h3>
-    <p></p>
+    <h2 id="ejercicio5">Ejercicio 5</h2>
+    <button onclick="ejercicio5()">Ejecutar</button>
+    <p id="resultado5"></p>
+
+    <h2 id="ejercicio6">Ejercicio 6</h2>
+    <button onclick="ejercicio6()">Iniciar</button>
+    <button onclick="parar6()">Parar</button>
+    <p id="resultado6"></p>
+
+    <h2 id="ejercicio7">Ejercicio 7</h2>
+    <button onclick="ejercicio7()">Mostrar hora</button>
+    <button onclick="parar7()">Parar reloj</button>
+    <p id="resultado7"></p>
+
+    <h2 id="ejercicio8">Ejercicio 8</h2>
+    <button onclick="ejercicio8()">Cambiar colores</button>
+    <button onclick="parar8()">Parar</button>
+    <p id="resultado8"></p>
+
+    <h2 id="ejercicio9">Ejercicio 9</h2>
+    <button onclick="ejercicio9()">Iniciar</button>
+    <button onclick="parar9()">Parar</button>
+    <p id="resultado9"></p>
+
+    <h2 id="ejercicio10">Ejercicio 10</h2>
+    <button onclick="ejercicio10()">Iniciar</button>
+    <button onclick="parar10()">Parar</button>
+    <p id="resultado10"></p>
 
     <script>
-        let ancho = parseInt(prompt("Dime el ancho:"))
-        let alto = parseInt(prompt("Dime el alto:"))
+        let ancho = parseInt(prompt("Dime el ancho:"));
+        let alto = parseInt(prompt("Dime el alto:"));
+
         let subVentana = null;
-        function abrir(){
-        subVentana = window.open("ejercicio.html","ejercicio1","height= " + alto +",width=" + ancho);
+        let intervalo6 = null;
+        let intervalo7 = null;
+        let intervalo8 = null;
+        let intervalo9 = null;
+        let intervalo10 = null;
 
+        // EJERCICIO 1
+        function ejercicio1() {
+            subVentana = window.open(
+                "ejercicio.html",
+                "ejercicio1",
+                "height=" + alto + ",width=" + ancho
+            );
         }
 
-        function cerrar(){
-            if (subVentana != null && !subVentana.closed){
-                subVentana.close()
+        // EJERCICIO 2
+        function ejercicio2() {
+            if (subVentana != null && !subVentana.closed) {
+                subVentana.close();
             }
-           subVentana = null;
         }
 
-        function comprobar(){
-            if(subVentana === null || subVentana.closed){
-                document.getElementById("ejercicio3").innerHTML = "Cerrar";
-            }else{
-                document.getElementById("ejercicio3").innerHTML = "Abierta";
+        // EJERCICIO 3
+        function ejercicio3() {
+            if (subVentana === null || subVentana.closed) {
+                document.getElementById("resultado3").innerHTML = "Cerrada";
+            } else {
+                document.getElementById("resultado3").innerHTML = "Abierta";
             }
         }
 
+        // EJERCICIO 4
+        function ejercicio4() {
+            let url = prompt("Dame una URL:");
 
-        let url = prompt("Dame una URL: ");
-        function abrirUrl(){
-            subVentana = window.open(url,"ejercicio1");
-            let status = "";
-            if(subVentana.closed){
-                status = "Cerrado"
-            }else{
-                status = "Abierto"
+            let ventana = window.open(url, "ejercicio4");
+
+            if (ventana == null) {
+                document.getElementById("resultado4").innerHTML =
+                    "No se pudo abrir la ventana";
+            } else {
+                document.getElementById("resultado4").innerHTML =
+                    "Estado: Abierta" +
+                    "<br>Length: " + ventana.length +
+                    "<br>Location: " + ventana.location +
+                    "<br>Name: " + ventana.name;
             }
-            
-            document.getElementById("eje4").innerHTML = 
-            "Estado: " + status +
-            "<br>Length: " + subVentana.length + 
-            "<br>Location: " + subVentana.location + 
-            "<br>Name: " + subVentana.name;
-        }
-        alert("Te estan robando")
-        let robo = prompt("Estas de acuerdo?");
-        let respuesta = "";
-        if (robo == "si"){
-            respuesta = "si está de acuerdo"
-        }else if(robo == "no"){
-            respuesta = "no está de acuerdo"
-        }
-        document.getElementById("eje5").innerHTML = respuesta;
-
-
-        function dihola(){
-        document.getElementById("id2").innerHTML += "<br>" + "Hello";
-        }
-        intervalID = setInterval(dihola,500)
-
-        function reset(){
-
-            window.clearInterval(intervalID);
-            intervalID = null;
         }
 
-        
+        // EJERCICIO 5
+        function ejercicio5() {
+            alert("ALERTA Te estan Robando el banco");
+
+            let respuesta = confirm("Estas de acuerdo?");
+
+            if (respuesta) {
+                document.getElementById("resultado5").innerHTML =
+                    "De acuerdo";
+            } else {
+                document.getElementById("resultado5").innerHTML =
+                    "No";
+            }
+        }
+
+        // EJERCICIO 6
+        function dihola() {
+            document.getElementById("resultado6").innerHTML += "<br>Hello";
+        }
+
+        function ejercicio6() {
+            if (intervalo6 == null) {
+                intervalo6 = setInterval(dihola, 500);
+            }
+        }
+
+        function parar6() {
+            clearInterval(intervalo6);
+            intervalo6 = null;
+        }
+
+        // EJERCICIO 7
+        function ejercicio7() {
+            if (intervalo7 == null) {
+                intervalo7 = setInterval(function() {
+                    let hora = new Date();
+                    document.getElementById("resultado7").innerHTML =
+                        hora.toLocaleTimeString();
+                }, 1000);
+            }
+        }
+
+        function parar7() {
+            clearInterval(intervalo7);
+            intervalo7 = null;
+        }
+
+        // EJERCICIO 8
+        let color = true;
+
+        function ejercicio8() {
+            if (intervalo8 == null) {
+                intervalo8 = setInterval(function() {
+                    if (color) {
+                        document.body.style.backgroundColor = "yellow";
+                    } else {
+                        document.body.style.backgroundColor = "pink";
+                    }
+
+                    color = !color;
+                }, 500);
+            }
+        }
+
+        function parar8() {
+            clearInterval(intervalo8);
+            intervalo8 = null;
+        }
+
+        // EJERCICIO 9
+        function ejercicio9() {
+            let tiempo = parseInt(prompt("Dime los milisegundos:"));
+
+            if (!isNaN(tiempo) && tiempo > 0) {
+                if (intervalo9 != null) {
+                    clearInterval(intervalo9);
+                }
+
+                intervalo9 = setInterval(function() {
+                    document.getElementById("resultado9").innerHTML +=
+                        "<br>Hola";
+                }, tiempo);
+            }
+        }
+
+        function parar9() {
+            clearInterval(intervalo9);
+            intervalo9 = null;
+        }
+
+        // EJERCICIO 10
+        function ejercicio10() {
+            let tiempo = parseInt(prompt("Dime los milisegundos:"));
+            let color1 = prompt("Dime el primer color:");
+            let color2 = prompt("Dime el segundo color:");
+
+            if (!isNaN(tiempo) && tiempo > 0) {
+                if (intervalo10 != null) {
+                    clearInterval(intervalo10);
+                }
+
+                let cambiar = true;
+
+                intervalo10 = setInterval(function() {
+                    if (cambiar) {
+                        document.body.style.backgroundColor = color1;
+                    } else {
+                        document.body.style.backgroundColor = color2;
+                    }
+
+                    cambiar = !cambiar;
+
+                    document.getElementById("resultado10").innerHTML =
+                        "Hola";
+                }, tiempo);
+            }
+        }
+
+        function parar10() {
+            clearInterval(intervalo10);
+            intervalo10 = null;
+        }
+
     </script>
 </body>
 </html>

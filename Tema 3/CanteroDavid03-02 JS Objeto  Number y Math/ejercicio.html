@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+
+    <h1>Práctica 03-02: Number y Math</h1>
+    <h2>David Cantero García</h2>
+
+    <h2 id="ejercicio1">Ejercicio 1. Circunferencia y área</h2>
+    <button onclick="ejercicio1()">Ejecutar ejercicio 1</button>
+    <p id="resultado1"></p>
+
+    <h2 id="ejercicio2">Ejercicio 2. Hipotenusa</h2>
+    <button onclick="ejercicio2()">Ejecutar ejercicio 2</button>
+    <p id="resultado2"></p>
+
+    <h2 id="ejercicio3">Ejercicio 3. Constantes Math</h2>
+    <button onclick="ejercicio3()">Ejecutar ejercicio 3</button>
+    <p id="resultado3"></p>
+
+    <h2 id="ejercicio4">Ejercicio 4. Logaritmos</h2>
+    <button onclick="ejercicio4()">Ejecutar ejercicio 4</button>
+    <p id="resultado4"></p>
+
+    <h2 id="ejercicio5">Ejercicio 5. Grados a radianes</h2>
+    <button onclick="ejercicio5()">Ejecutar ejercicio 5</button>
+    <p id="resultado5"></p>
+
+    <h2 id="ejercicio6">Ejercicio 6. Seno, coseno y tangente</h2>
+    <button onclick="ejercicio6()">Ejecutar ejercicio 6</button>
+    <p id="resultado6"></p>
+
+    <h2 id="ejercicio7">Ejercicio 7. Arcoseno, arcocoseno y arcotangente</h2>
+    <button onclick="ejercicio7()">Ejecutar ejercicio 7</button>
+    <p id="resultado7"></p>
+
+    <h2 id="ejercicio8">Ejercicio 8. Techo, suelo y redondeo</h2>
+    <button onclick="ejercicio8()">Ejecutar ejercicio 8</button>
+    <p id="resultado8"></p>
+
+    <h2 id="ejercicio9">Ejercicio 9. Redondeo a un decimal</h2>
+    <button onclick="ejercicio9()">Ejecutar ejercicio 9</button>
+    <p id="resultado9"></p>
+
+    <h2 id="ejercicio10">Ejercicio 10. Máximo y mínimo</h2>
+    <button onclick="ejercicio10()">Ejecutar ejercicio 10</button>
+    <p id="resultado10"></p>
+
+    <h2 id="ejercicio11">Ejercicio 11. Número aleatorio</h2>
+    <button onclick="ejercicio11()">Ejecutar ejercicio 11</button>
+    <p id="resultado11"></p>
+
+    <h2 id="ejercicio12">Ejercicio 12. Bases y formatos numéricos</h2>
+    <button onclick="ejercicio12()">Ejecutar ejercicio 12</button>
+    <p id="resultado12"></p>
+
+    <h2 id="ejercicio13">Ejercicio 13. Formatos de moneda</h2>
+    <button onclick="ejercicio13()">Ejecutar ejercicio 13</button>
+    <p id="resultado13"></p>
+
+    <h2 id="ejercicio14">Ejercicio 14. Ecuación de segundo grado</h2>
+    <button onclick="ejercicio14()">Ejecutar ejercicio 14</button>
+    <p id="resultado14"></p>
+
+    <h2 id="ejercicio15">Ejercicio 15. Sistema de ecuaciones</h2>
+    <button onclick="ejercicio15()">Ejecutar ejercicio 15</button>
+    <p id="resultado15"></p>
+
+    <h2 id="ejercicio16">Ejercicio 16. Figuras geométricas</h2>
+    <button onclick="ejercicio16()">Ejecutar ejercicio 16</button>
+    <p id="resultado16"></p>
+
+    <h2 id="ejercicio17">Ejercicio 17. Cálculo del pH</h2>
+    <button onclick="ejercicio17()">Ejecutar ejercicio 17</button>
+    <p id="resultado17"></p>
+
+
+    <script>
+
+        // FUNCION PARA PEDIR NUMEROS
+        function pedirNumero(mensaje) {
+
+            let texto = window.prompt(mensaje);
+
+            if (texto === null || texto.trim() === "") {
+                return null;
+            }
+
+            let numero = Number(texto.replace(",", "."));
+
+            if (isNaN(numero) || !isFinite(numero)) {
+                alert("Introduce un numero valido");
+                return null;
+            }
+
+            return numero;
+        }
+
+
+        // EJERCICIO 1
+        function ejercicio1() {
+
+            let radio = pedirNumero("Introduce el radio:");
+
+            if (radio === null) return;
+
+            if (radio < 0) {
+                alert("El radio no puede ser negativo");
+                return;
+            }
+
+            let circunferencia = 2 * Math.PI * radio;
+            let area = Math.PI * radio * radio;
+
+            document.getElementById("resultado1").innerHTML =
+                `Circunferencia: ${circunferencia}<br>
+                 Area: ${area}`;
+        }
+
+
+        // EJERCICIO 2
+        function ejercicio2() {
+
+            let a = pedirNumero("Introduce el primer cateto:");
+            if (a === null) return;
+
+            let b = pedirNumero("Introduce el segundo cateto:");
+            if (b === null) return;
+
+            if (a < 0 || b < 0) {
+                alert("Los catetos no pueden ser negativos");
+                return;
+            }
+
+            let hipotenusa = Math.sqrt(a*a + b*b);
+
+            document.getElementById("resultado2").innerHTML =
+                `Hipotenusa: ${hipotenusa}`;
+        }
+
+
+        // EJERCICIO 3
+        function ejercicio3() {
+
+            document.getElementById("resultado3").innerHTML =
+                `E: ${Math.E}<br>
+                 LN2: ${Math.LN2}<br>
+                 LN10: ${Math.LN10}<br>
+                 LOG2E: ${Math.LOG2E}<br>
+                 LOG10E: ${Math.LOG10E}`;
+        }
+
+
+        // EJERCICIO 4
+        function ejercicio4() {
+
+            let numero = pedirNumero("Introduce un numero mayor que 0:");
+
+            if (numero === null) return;
+
+            if (numero <= 0) {
+                alert("El numero debe ser mayor que 0");
+                return;
+            }
+
+            document.getElementById("resultado4").innerHTML =
+                `Logaritmo neperiano: ${Math.log(numero)}<br>
+                 Logaritmo base 2: ${Math.log2(numero)}<br>
+                 Logaritmo base 10: ${Math.log10(numero)}`;
+        }
+
+
+        // EJERCICIO 5
+        function ejercicio5() {
+
+            let grados = pedirNumero("Introduce grados entre 0 y 360:");
+
+            if (grados === null) return;
+
+            if (grados < 0 || grados > 360) {
+                alert("Error: el angulo debe estar entre 0 y 360");
+                return;
+            }
+
+            let radianes = (grados / 180) * Math.PI;
+
+            document.getElementById("resultado5").innerHTML =
+                `${grados} grados = ${radianes} radianes`;
+        }
+
+
+        // EJERCICIO 6
+        function ejercicio6() {
+
+            let grados = pedirNumero("Introduce grados entre 0 y 360:");
+
+            if (grados === null) return;
+
+            if (grados < 0 || grados > 360) {
+                alert("Error: el angulo debe estar entre 0 y 360");
+                return;
+            }
+
+            let x = (grados / 180) * Math.PI;
+
+            document.getElementById("resultado6").innerHTML =
+                `Coseno: ${Math.cos(x)}<br>
+                 Seno: ${Math.sin(x)}<br>
+                 Tangente: ${Math.tan(x)}`;
+        }
+
+
+        // EJERCICIO 7
+        function ejercicio7() {
+
+            let x = pedirNumero("Introduce un numero entre 0 y 1:");
+
+            if (x === null) return;
+
+            if (x < 0 || x > 1) {
+                alert("El numero debe estar entre 0 y 1");
+                return;
+            }
+
+            document.getElementById("resultado7").innerHTML =
+                `ACOS: ${Math.acos(x)} radianes<br>
+                 ASIN: ${Math.asin(x)} radianes<br>
+                 ATAN: ${Math.atan(x)} radianes`;
+        }
+
+
+        // EJERCICIO 8
+        function ejercicio8() {
+
+            let texto = prompt("Pon un numero:");
+
+            if (texto === null) return;
+
+            let numero = parseInt(texto, 10);
+
+            if (isNaN(numero)) {
+
+                document.getElementById("resultado8").innerHTML =
+                    "No has introducido un numero";
+
+            } else {
+
+                document.getElementById("resultado8").innerHTML =
+                    `Techo: ${Math.ceil(numero)}<br>
+                     Suelo: ${Math.floor(numero)}<br>
+                     Redondeo: ${Math.round(numero)}`;
+            }
+        }
+
+
+        // EJERCICIO 9
+        function ejercicio9() {
+
+            let numero = pedirNumero("Introduce un numero:");
+
+            if (numero === null) return;
+
+            let resultado = Math.round(numero * 10) / 10;
+
+            document.getElementById("resultado9").innerHTML =
+                `Redondeo a un decimal: ${resultado}`;
+        }
+
+
+        // EJERCICIO 10
+        function ejercicio10() {
+
+            let minimo = Infinity;
+            let maximo = -Infinity;
+            let numero;
+            let cantidad = 0;
+
+            do {
+
+                let texto = prompt("Introduce un numero (0 para terminar):");
+
+                if (texto === null) return;
+
+                numero = Number(texto.replace(",", "."));
+
+                if (isNaN(numero) || texto.trim() === "") {
+                    alert("Introduce un numero valido");
+                    continue;
+                }
+
+                if (numero !== 0) {
+                    minimo = Math.min(numero, minimo);
+                    maximo = Math.max(numero, maximo);
+                    cantidad++;
+                }
+
+            } while (numero !== 0);
+
+            if (cantidad === 0) {
+
+                document.getElementById("resultado10").innerHTML =
+                    "No has introducido numeros";
+
+            } else {
+
+                document.getElementById("resultado10").innerHTML =
+                    `Minimo: ${minimo}<br>
+                     Maximo: ${maximo}`;
+            }
+        }
+
+
+        // EJERCICIO 11
+        function ejercicio11() {
+
+            let b = pedirNumero("Introduce el numero maximo:");
+
+            if (b === null) return;
+
+            if (b < 0) {
+                alert("El numero debe ser positivo");
+                return;
+            }
+
+            let aleatorio = Math.round(Math.random() * b);
+
+            document.getElementById("resultado11").innerHTML =
+                `Numero aleatorio: ${aleatorio}`;
+        }
+
+
+        // EJERCICIO 12
+        function ejercicio12() {
+
+            let numero = pedirNumero("Introduce un numero entero:");
+
+            if (numero === null) return;
+
+            if (!Number.isInteger(numero)) {
+                alert("Introduce un numero entero");
+                return;
+            }
+
+            document.getElementById("resultado12").innerHTML =
+                `Base 2: ${numero.toString(2)}<br>
+                 Base 8: ${numero.toString(8)}<br>
+                 Base 16: ${numero.toString(16)}<br>
+                 Notacion exponencial: ${numero.toExponential()}<br>
+                 10 decimales: ${numero.toFixed(10)}<br>
+                 Longitud 8: ${String(numero).padStart(8, " ")}`;
+        }
+
+
+        // EJERCICIO 13
+        function ejercicio13() {
+
+            let numero = pedirNumero("Introduce una cantidad:");
+
+            if (numero === null) return;
+
+            document.getElementById("resultado13").innerHTML =
+                `Euros: ${numero.toLocaleString("es-ES", {
+                    style: "currency",
+                    currency: "EUR"
+                })}<br>
+
+                Yenes: ${numero.toLocaleString("ja-JP", {
+                    style: "currency",
+                    currency: "JPY"
+                })}<br>
+
+                Minimo 3 decimales: ${numero.toLocaleString("es-ES", {
+                    minimumFractionDigits: 3
+                })}<br>
+
+                Minimo y maximo 3 decimales: ${numero.toLocaleString("es-ES", {
+                    minimumFractionDigits: 3,
+                    maximumFractionDigits: 3
+                })}`;
+        }
+
+
+        // EJERCICIO 14
+        function ejercicio14() {
+
+            let a = pedirNumero("Introduce a:");
+            if (a === null) return;
+
+            let b = pedirNumero("Introduce b:");
+            if (b === null) return;
+
+            let c = pedirNumero("Introduce c:");
+            if (c === null) return;
+
+            let resultado;
+
+            if (a === 0) {
+
+                if (b === 0) {
+                    resultado = c === 0 ?
+                        "Infinitas soluciones" :
+                        "No hay solucion";
+                } else {
+                    resultado = `Solucion: ${-c/b}`;
+                }
+
+            } else {
+
+                let discriminante = b*b - 4*a*c;
+
+                if (discriminante > 0) {
+
+                    let x1 = (-b + Math.sqrt(discriminante))/(2*a);
+                    let x2 = (-b - Math.sqrt(discriminante))/(2*a);
+
+                    resultado = `X1: ${x1}<br>X2: ${x2}`;
+
+                } else if (discriminante === 0) {
+
+                    let x = -b/(2*a);
+                    resultado = `Solucion doble: ${x}`;
+
+                } else {
+
+                    resultado = "No hay soluciones reales";
+                }
+            }
+
+            document.getElementById("resultado14").innerHTML = resultado;
+        }
+
+
+        // EJERCICIO 15
+        function ejercicio15() {
+
+            let a1 = pedirNumero("Introduce a1:");
+            if (a1 === null) return;
+
+            let b1 = pedirNumero("Introduce b1:");
+            if (b1 === null) return;
+
+            let c1 = pedirNumero("Introduce c1:");
+            if (c1 === null) return;
+
+            let a2 = pedirNumero("Introduce a2:");
+            if (a2 === null) return;
+
+            let b2 = pedirNumero("Introduce b2:");
+            if (b2 === null) return;
+
+            let c2 = pedirNumero("Introduce c2:");
+            if (c2 === null) return;
+
+            let denominador = a1*b2 - a2*b1;
+
+            if (denominador === 0) {
+
+                document.getElementById("resultado15").innerHTML =
+                    "No existe una solucion unica";
+
+            } else {
+
+                let x = (c1*b2 - c2*b1)/denominador;
+                let y = (a1*c2 - c1*a2)/denominador;
+
+                document.getElementById("resultado15").innerHTML =
+                    `X = ${x}<br>Y = ${y}`;
+            }
+        }
+
+
+        // EJERCICIO 16
+        function ejercicio16() {
+
+            let figura = prompt(
+                "Elige una figura: circulo, cuadrado, cubo, esfera o cilindro"
+            );
+
+            if (figura === null) return;
+
+            figura = figura.toLowerCase().trim();
+
+            let resultado = "";
+
+            if (figura === "circulo" || figura === "círculo") {
+
+                let r = pedirNumero("Introduce el radio:");
+                if (r === null) return;
+
+                resultado = `Area: ${Math.PI*r*r}<br>
+                             No tiene volumen porque es una figura plana`;
+
+            } else if (figura === "cuadrado") {
+
+                let lado = pedirNumero("Introduce el lado:");
+                if (lado === null) return;
+
+                resultado = `Area: ${lado*lado}<br>
+                             No tiene volumen porque es una figura plana`;
+
+            } else if (figura === "cubo") {
+
+                let lado = pedirNumero("Introduce la arista:");
+                if (lado === null) return;
+
+                resultado = `Area: ${6*lado*lado}<br>
+                             Volumen: ${lado*lado*lado}`;
+
+            } else if (figura === "esfera") {
+
+                let r = pedirNumero("Introduce el radio:");
+                if (r === null) return;
+
+                resultado = `Area: ${4*Math.PI*r*r}<br>
+                             Volumen: ${(4/3)*Math.PI*r*r*r}`;
+
+            } else if (figura === "cilindro") {
+
+                let r = pedirNumero("Introduce el radio:");
+                if (r === null) return;
+
+                let h = pedirNumero("Introduce la altura:");
+                if (h === null) return;
+
+                resultado = `Area: ${2*Math.PI*r*(r+h)}<br>
+                             Volumen: ${Math.PI*r*r*h}`;
+
+            } else {
+
+                resultado = "Figura no reconocida";
+            }
+
+            document.getElementById("resultado16").innerHTML = resultado;
+        }
+
+
+        // EJERCICIO 17
+        function ejercicio17() {
+
+            let concentracion = pedirNumero(
+                "Introduce la concentracion de iones H+ (ejemplo: 0.001):"
+            );
+
+            if (concentracion === null) return;
+
+            if (concentracion <= 0) {
+                alert("La concentracion debe ser mayor que 0");
+                return;
+            }
+
+            let ph = -Math.log10(concentracion);
+
+            let tipo;
+
+            if (ph < 7) {
+                tipo = "Acido";
+            } else if (ph === 7) {
+                tipo = "Neutro";
+            } else {
+                tipo = "Basico o alcalino";
+            }
+
+            // Calcular color de la escala de pH
+            let valor = Math.max(0, Math.min(14, ph));
+
+            let rojo, verde, azul;
+
+            if (valor <= 7) {
+
+                let t = valor / 7;
+
+                rojo = 220;
+                verde = Math.round(25 + 170*t);
+                azul = Math.round(25 + 15*t);
+
+            } else {
+
+                let t = (valor - 7) / 7;
+
+                rojo = Math.round(220*(1-t));
+                verde = Math.round(195*(1-t) + 45*t);
+                azul = Math.round(40 + 190*t);
+            }
+
+            let color = `rgb(${rojo}, ${verde}, ${azul})`;
+
+            document.getElementById("resultado17").innerHTML =
+                `Concentracion: ${concentracion}<br>
+                 pH: ${ph}<br>
+                 Clasificacion: ${tipo}<br>
+                 <span style="
+                    display:block;
+                    background:${color};
+                    color:white;
+                    padding:20px;
+                    text-align:center;
+                    font-weight:bold;
+                    margin-top:10px;">
+                    pH = ${ph.toFixed(2)}
+                 </span>`;
+        }
+
+    </script>
+
+</body>
+</html>

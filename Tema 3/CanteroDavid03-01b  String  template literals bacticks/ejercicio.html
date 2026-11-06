@@ -1,0 +1,205 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Cantero García</title>
+</head>
+<body>
+
+    <h1>Práctica 03-01b - Backticks</h1>
+
+    <h2 id="ejercicio1">Ejercicio 1</h2>
+    <button onclick="ejercicio1()">Ejecutar</button>
+    <div id="resultado1"></div>
+
+    <h2 id="ejercicio2">Ejercicio 2</h2>
+    <button onclick="ejercicio2()">Ejecutar</button>
+    <div id="resultado2"></div>
+
+    <h2 id="ejercicio3">Ejercicio 3</h2>
+    <button onclick="ejercicio3()">Ejecutar</button>
+    <div id="resultado3"></div>
+
+    <h2 id="ejercicio4">Ejercicio 4</h2>
+    <button onclick="ejercicio4()">Ejecutar</button>
+    <div id="resultado4"></div>
+
+    <h2 id="ejercicio5">Ejercicio 5</h2>
+    <button onclick="ejercicio5()">Ejecutar</button>
+    <div id="resultado5"></div>
+
+    <h2 id="ejercicio6">Ejercicio 6</h2>
+    <button onclick="ejercicio6()">Ejecutar</button>
+    <div id="resultado6"></div>
+
+
+    <script>
+
+        // EJERCICIO 1
+        function ejercicio1() {
+
+            const nombre1 = "Laura";
+            const edad1 = 29;
+            const ciudad1 = "Madrid";
+
+            const nombre2 = "Carlos";
+            const edad2 = 30;
+            const ciudad2 = "Sevilla";
+
+            const nombre3 = "Ana";
+            const edad3 = 25;
+            const ciudad3 = "Málaga";
+
+            const usuario1 = `
+                <div>
+                    <h3>${nombre1}</h3>
+                    <p>Edad: ${edad1}</p>
+                    <p>Ciudad: ${ciudad1}</p>
+                </div>`;
+
+            const usuario2 = `
+                <div>
+                    <h3>${nombre2}</h3>
+                    <p>Edad: ${edad2}</p>
+                    <p>Ciudad: ${ciudad2}</p>
+                </div>`;
+
+            const usuario3 = `
+                <div>
+                    <h3>${nombre3}</h3>
+                    <p>Edad: ${edad3}</p>
+                    <p>Ciudad: ${ciudad3}</p>
+                </div>`;
+
+            document.getElementById("resultado1").innerHTML =
+                usuario1 + usuario2 + usuario3;
+        }
+
+
+        // EJERCICIO 2
+        function ejercicio2() {
+
+            const producto = "auriculares inalámbricos";
+            const precio = 59.99;
+            const marca = "SoundMax";
+
+            let mensaje = `Los ${producto} de la marca ${marca} cuestan ${precio}€.`;
+
+            let palabras = mensaje.split(" ");
+
+            palabras = palabras.map(palabra =>
+                palabra.charAt(0).toUpperCase() + palabra.slice(1)
+            );
+
+            mensaje = palabras.join(" ");
+
+            mensaje = mensaje.replace("€", "euros");
+
+            document.getElementById("resultado2").innerHTML = mensaje;
+        }
+
+
+        // EJERCICIO 3
+        function ejercicio3() {
+
+            const nombre = " juan pérez ";
+            const producto = "Teclado mecánico RGB";
+            const fecha = "09/10/2025";
+
+            let nombreLimpio = nombre.trim();
+
+            let palabras = nombreLimpio.split(" ");
+
+            palabras = palabras.map(palabra =>
+                palabra.charAt(0).toUpperCase() + palabra.slice(1)
+            );
+
+            nombreLimpio = palabras.join(" ");
+
+            let mensaje = `Hola ${nombreLimpio}, tu pedido del producto ${producto} se enviará el ${fecha}.`;
+
+            mensaje = mensaje.toUpperCase();
+
+            document.getElementById("resultado3").innerHTML = mensaje;
+        }
+
+
+        // EJERCICIO 4
+        function ejercicio4() {
+
+            const usuarios = [" ana ", "PEDRO", "maria "];
+
+            let lista = usuarios.map(nombre => {
+
+                nombre = nombre.trim().toLowerCase();
+
+                nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+
+                return `<li>${nombre}</li>`;
+            });
+
+            const html = `
+                <ul>
+                    ${lista.join("")}
+                </ul>`;
+
+            document.getElementById("resultado4").innerHTML = html;
+        }
+
+
+        // EJERCICIO 5
+        function ejercicio5() {
+
+            const nombre = "Lucía";
+            const hobby = "leer libros de ciencia ficción";
+
+            let mensaje = `A ${nombre} le encanta ${hobby}.`;
+
+            const longitud = mensaje.length;
+
+            const contiene = mensaje.includes("ficción");
+
+            const reemplazo = mensaje.replace("ficción", "aventuras");
+
+            const minusculas = mensaje.toLowerCase();
+
+            const mayusculas = mensaje.toUpperCase();
+
+            document.getElementById("resultado5").innerHTML = `
+                <p>Mensaje: ${mensaje}</p>
+                <p>Número de caracteres: ${longitud}</p>
+                <p>¿Incluye ficción?: ${contiene}</p>
+                <p>Texto reemplazado: ${reemplazo}</p>
+                <p>Minúsculas: ${minusculas}</p>
+                <p>Mayúsculas: ${mayusculas}</p>
+            `;
+        }
+
+
+        // EJERCICIO 6
+        function ejercicio6() {
+
+            const usuario = {
+                nombre: "Beatriz",
+                descripcion: "Apasionada del desarrollo web, la inteligencia artificial y los videojuegos."
+            };
+
+            let mensaje = `Perfil de ${usuario.nombre}: ${usuario.descripcion}`;
+
+            if (usuario.descripcion.length > 50) {
+
+                const descripcionCorta = usuario.descripcion.slice(0, 50) + "...";
+
+                mensaje = `Perfil de ${usuario.nombre}: ${descripcionCorta}`;
+            }
+
+            document.getElementById("resultado6").innerHTML = mensaje;
+        }
+
+    </script>
+
+</body>
+</html>
+```
